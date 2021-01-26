@@ -1,5 +1,5 @@
-#Для авторизации
+# Для авторизации
 
-#Login admin@catalog.org
+# Login admin@catalog.org
 
-#Password Qwerty33
+# Password Qwerty33

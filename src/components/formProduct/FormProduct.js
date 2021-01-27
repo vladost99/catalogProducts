@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
+import {AiOutlineCloudUpload} from "react-icons/ai";
 import TextField from '@material-ui/core/TextField';
 import { 
     FormInputPercent,
@@ -10,7 +11,11 @@ import {
     FormImage,
     FormControl,
     ErrorText,
-    FormInputCheck
+    FormUploadImage,
+    FormInputCheck,
+    WrapperUpload,
+    UploadLabel,
+    UploadName
 } from './FormProductElements';
 import { addProduct, uploadImage, editProduct, downloadImage } from '../../Services/firebaseApi';
 import { useFormik } from 'formik';
@@ -166,7 +171,7 @@ function FormProduct(props) {
             endDatePercent: editPage ? endDatePercent : '',
             isDiscount: editPage ? isDiscount : false,
             imageName:  editPage ? imageName : '',
-            imageUrl: editPage ? imageUrl : '',
+            imageUrl: editPage ? imageUrl : null,
             imageWidth: editPage ? imageWidth : 0,
             imageHeight: editPage ? imageHeight : 0,
         },
@@ -256,13 +261,17 @@ function FormProduct(props) {
                 </FormControl>
                 <FormControl>
                     <FormLabel>Фото(Обязательно)</FormLabel>
-                    <TextField
-                     type="file"
-                     id="imageName"
-                     name="imageName"
-                     onChange={changeImage}
-                    />
-                    
+                    <WrapperUpload>
+                        <UploadLabel htmlFor="imageName">
+                            <UploadName>Загрузить файл <AiOutlineCloudUpload size="2em"/></UploadName>   
+                            <FormUploadImage
+                            type="file"
+                            id="imageName"
+                            name="imageName"
+                            onChange={changeImage}
+                            />
+                        </UploadLabel>
+                    </WrapperUpload>
                     <FormImage  src={formik.values.imageUrl} />
                     {formik.touched.imageName && formik.errors.imageUrl ? (
                             <ErrorText>{formik.errors.imageUrl}</ErrorText>

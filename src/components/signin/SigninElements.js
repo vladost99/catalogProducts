@@ -7,6 +7,11 @@ export const SignInWrapper = styled.div`
     align-items: center;
 `;
 
+export const FormIcon = styled.div`
+    position: absolute;
+    top: -4px;
+`;
+
 export const SignInName = styled.h3`
     font-size: 40px;
     color: #fff;
@@ -22,6 +27,7 @@ export const SignInForm = styled.form`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 `;
 
 export const SignFormControl = styled.div`

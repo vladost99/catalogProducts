@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import { ErrorText, SignFormControl, SignFormElem, SignFormLabel, SignInForm, SignInInput, SignInName, SignInWrapper } from './SigninElements';
+import React from 'react'
+import { ErrorText, FormIcon, SignFormControl, SignFormElem, SignFormLabel, SignInForm, SignInInput, SignInName, SignInWrapper } from './SigninElements';
 import {Button} from '../Button';
 import {AiOutlineUser, AiFillLock, AiOutlineLogin} from 'react-icons/ai';
 import { useFormik } from 'formik';
@@ -10,7 +10,7 @@ import {authorizedEror, loaded, loading} from '../../redux/actions';
 import {useHistory, useLocation, Redirect} from 'react-router-dom';
 import {logIn} from '../../Services/firebaseApi';
 import Preloader from '../preloader/Preloader';
-
+import {BiUserCircle} from "react-icons/bi";
 function Signin() {
    const dispatch = useDispatch();
    const history = useHistory();
@@ -56,7 +56,8 @@ function Signin() {
     return (
        <SignInWrapper>
            <SignInForm onSubmit={formik.handleSubmit}>
-               <SignInName>Авторизация в систему</SignInName>
+               <FormIcon><BiUserCircle size="4em" color="#fff" /></FormIcon>
+               <SignInName>Авторизация</SignInName>
                <SignFormControl>
                     
                     <SignFormLabel><AiOutlineUser/><SignFormElem>Логин</SignFormElem></SignFormLabel>

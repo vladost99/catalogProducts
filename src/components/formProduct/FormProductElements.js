@@ -60,11 +60,6 @@ export const FormInputDescr = styled.textarea.attrs(props => ({}))`
     resize: none; 
 `;
 
-export const FormUploadImage = styled.input.attrs(props => ({
-    type: 'file'
-}))`
-    width: 300px;
-`;
 
 export const FormInputPrice = styled.input.attrs(props => ({
     type: 'number'
@@ -113,9 +108,63 @@ export const ErrorText = styled.div`
     font-size: 25px;
 `;
 
+
+
+
+/*Preview image */
+export const WrapperUpload = styled.div`
+    box-sizing:border-box
+`;
+
+export const FormUploadImage = styled.input.attrs(props => ({
+    type: 'file'
+}))`
+    position:absolute;
+    width:1px;
+    height:1px;
+    padding:0;
+    margin:-1px;
+    overflow:hidden;
+    clip:rect(0,0,0,0);
+    border: 0;
+`;
+
+export const UploadLabel = styled.label`
+    position:relative;
+    background: rgba(41,30,106,1);
+    display:block;
+    padding:1em;
+    font-size:1.2em;
+    width:100%;
+    height:3.5em;
+    color:#fff;
+    cursor:pointer;
+    box-shadow:0 1px 3px #0b0b0b;
+    margin-bottom: 15px;
+    transition: .5s;
+    opacity: 1;
+    &:hover {
+        opacity: 0.6;
+    }
+    
+`;
+
+export const UploadName = styled.span`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width:100%;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    word-wrap:normal;
+    position: relative;
+`;
+
 export const FormImage = styled.img`
     width: 100%;
     display: block;
-    object-fit: cover;
+    /* object-fit: cover; */
     height: 200px;
 `;
+

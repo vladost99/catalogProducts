@@ -18,7 +18,7 @@ export const CatalogList = styled.div`
         grid-template-columns: repeat(2, 50%);
     }
 
-      @media (max-width: 600px) {
+      @media (max-width: 568px) {
         grid-template-columns:  100%;
       }  
 `;

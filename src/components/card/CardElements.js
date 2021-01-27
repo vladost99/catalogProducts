@@ -55,8 +55,13 @@ export const CardMenuItem = styled.div`
 export const CardImage = styled.img`
     max-width: 100%;
     height: 270px;
-    display: block;
     object-fit: cover;
+`;
+
+export const CardWrapperImage = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 export const CardName = styled(Link)`

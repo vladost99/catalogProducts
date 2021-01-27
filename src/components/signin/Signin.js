@@ -7,14 +7,16 @@ import {useDispatch, useSelector} from 'react-redux';
 import * as Yup from 'yup';
 import { TextField } from '@material-ui/core';
 import {authorizedEror, loaded, loading} from '../../redux/actions';
-import {useHistory} from 'react-router-dom';
+import {useHistory, useLocation, Redirect} from 'react-router-dom';
 import {logIn} from '../../Services/firebaseApi';
 import Preloader from '../preloader/Preloader';
 
 function Signin() {
    const dispatch = useDispatch();
    const history = useHistory();
+   const { state } = useLocation();
    const errorLogin = useSelector(state => state.errorLogin);
+   const auth = useSelector(state => state.isSignIn);
    const isLoading = useSelector(state => state.isLoading);
 
    const validate = Yup.object({
@@ -46,6 +48,9 @@ function Signin() {
           },
     });
 
+    if (auth) {
+        return <Redirect to={state?.from || '/'}/>
+    }
 
 
     return (

@@ -13,6 +13,7 @@ import {
     CardName, 
     CardPrice,
     CardTimer,
+    CardWrapperImage,
     PriceBlock
 } from './CardElements';
 import {AiOutlineShoppingCart} from "react-icons/ai";
@@ -53,6 +54,7 @@ function Card({
         const handleDrop = () => {
             setisDrop(!isDrop);
         };
+
         const date = endDatePercent; //  дата окончание скидки
         const priceDiscount = Math.round(price - (price*(percent/100)));
          
@@ -67,7 +69,9 @@ function Card({
                             <CardMenuItem><Link to={`/editProduct/${id}`}>Редактировать</Link></CardMenuItem>
                         </CardMenuDrop>}
                 </CardHeader>
-                <CardImage src={imageUrl} alt="Фото продукта" />
+                <CardWrapperImage>
+                    <CardImage src={imageUrl} alt="Фото продукта" />
+                </CardWrapperImage>
                 <CardFooter>
                     <CardDescription>
                         {description}

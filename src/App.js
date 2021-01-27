@@ -10,6 +10,7 @@ import {useSelector} from 'react-redux';
 import ErrorPage from './components/404/ErrorPage';
 import { createGlobalStyle } from 'styled-components';
 import ProductPage from './pages/product/ProductPage';
+import PrivateRoute from './components/PrivateRout/PrivateRoute';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -37,12 +38,12 @@ function App() {
        <Route exact path="/" component={Catalog}/>
        <Route exact path="/signin" component={SignIn}/>
        <Route exact path="/product/:id" component={ProductPage} />
-       <Route exact path="/newProduct" render={()=> (
-          isLoggin ? (<NewProduct/>) : (<Redirect to="/signin" />)
-       )}/>
-       <Route exact path="/editProduct/:id" render={() => (
-          isLoggin ?  (<EditPage/>) : (<Redirect  to="/"/>)
-       )}/>
+       <PrivateRoute path="/newProduct" redirect="/signin" auth={isLoggin}>
+          <NewProduct/>
+       </PrivateRoute>
+       <PrivateRoute path="/editProduct/:id" redirect="/" auth={isLoggin}>
+         <EditPage/>
+       </PrivateRoute>
        <Route path="*" component={ErrorPage}/> 
      </Switch> 
     

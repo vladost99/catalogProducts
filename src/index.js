@@ -9,11 +9,11 @@ import Auth from './auth/Auth';
 ReactDOM.render(
   <React.StrictMode>
    <Provider store={store}>
-    <Router>
-      <Auth>
+   <Auth>
+      <Router>
         <App/>
-      </Auth>
-    </Router>
+      </Router>
+    </Auth>
    </Provider>
   </React.StrictMode>,
   document.getElementById('root')

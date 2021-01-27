@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs'; 
@@ -71,13 +71,13 @@ const useStyles = makeStyles((theme) => ({
 function Product(props) {
   const classes = useStyles();
   const [value, setValue] = useState(0);
-  const [movieUrl,setMovieUrl] = useState('');
+  const [movieUrl, setMovieUrl] = useState('');
   const opts = {
     height: '390',
     width: '100%',
-    playerVars: {
+    /* playerVars: {
         autoplay: 1
-    }
+    } */
   }
 
   const handleChange = (event, newValue) => {
@@ -86,7 +86,7 @@ function Product(props) {
 
   const handleMovie = async () => {
 
-   const options = {
+   /* const options = {
         q: props.title,
         type: 'video',
         part: 'snippet'
@@ -94,8 +94,19 @@ function Product(props) {
 
     let result = await searchYoutube(YOUTUBE_KEY,options);
     console.log(result);
-    setMovieUrl(result.items[1].id.videoId);
+    setMovieUrl(result.items[1].id.videoId); */
 };
+
+ useEffect( async () => {
+  const options = {
+    q: props.title,
+    type: 'video',
+    part: 'snippet'
+};
+  let result = await searchYoutube(YOUTUBE_KEY,options);
+  console.log(result);
+  setMovieUrl(result.items[1].id.videoId); 
+ }, [])
   
 
   const priceDiscount = Math.round(props.price - (props.price*(props.percent/100)));

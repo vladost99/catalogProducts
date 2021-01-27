@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs'; 
@@ -7,6 +7,9 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import {InfoTitle,Descr,BtnWrap, Wrapper,BlockPrice,Discount, BlocInfo,Price,PriceDiscount, InfoId, BtnBuy, BlockImage,Img, InfoWrap} from './ProductElement';
 import {AiOutlineShoppingCart} from "react-icons/ai";
+import YouTube from 'react-youtube';
+import {YOUTUBE_KEY} from '../../Environment/Youtube';
+import searchYoutube from 'youtube-api-v3-search';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -67,11 +70,33 @@ const useStyles = makeStyles((theme) => ({
 
 function Product(props) {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
+  const [movieUrl,setMovieUrl] = useState('');
+  const opts = {
+    height: '390',
+    width: '100%',
+    playerVars: {
+        autoplay: 1
+    }
+  }
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  const handleMovie = async () => {
+
+   const options = {
+        q: props.title,
+        type: 'video',
+        part: 'snippet'
+   };
+
+    let result = await searchYoutube(YOUTUBE_KEY,options);
+    console.log(result);
+    setMovieUrl(result.items[1].id.videoId);
+};
+  
 
   const priceDiscount = Math.round(props.price - (props.price*(props.percent/100)));
 
@@ -81,7 +106,7 @@ function Product(props) {
         <Tabs className={classes.flex} value={value} onChange={handleChange}>
           <Tab label="Главная" {...a11yProps(0)} />
           <Tab label="Описание" {...a11yProps(1)} />
-          <Tab label="Видео" {...a11yProps(2)} />
+          <Tab onClick={handleMovie} label="Видео" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       <TabPanel className={classes.tab} value={value} index={0}>
@@ -106,8 +131,8 @@ function Product(props) {
       <TabPanel className={classes.tab} value={value} index={1}>
         <Descr>{props.description}</Descr>
       </TabPanel>
-      <TabPanel className={classes.tab} value={value} index={2}>
-        видео
+      <TabPanel  value={value} index={2}>
+       <YouTube videoId={movieUrl} opts={opts}/>
       </TabPanel>
     </Wrapper>
   );

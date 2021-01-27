@@ -2,21 +2,7 @@ import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import {AiOutlineCloudUpload} from "react-icons/ai";
 import TextField from '@material-ui/core/TextField';
-import { 
-    FormInputPercent,
-    FormLabel,
-    FormName,
-    SectionWrapper,
-    Form,
-    FormImage,
-    FormControl,
-    ErrorText,
-    FormUploadImage,
-    FormInputCheck,
-    WrapperUpload,
-    UploadLabel,
-    UploadName
-} from './FormProductElements';
+import {  FormInputPercent, FormLabel,FormName,SectionWrapper,Form,FormImage,FormControl,ErrorText,FormUploadImage,FormInputCheck,WrapperUpload,UploadLabel,UploadName} from './FormProductElements';
 import { addProduct, uploadImage, editProduct, downloadImage } from '../../Services/firebaseApi';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -144,7 +130,7 @@ function FormProduct(props) {
             .max(60,'Заголовок должен иметь минимум 20 и 60 символов')
             .required('Пожалуйста заполните поле'),
         description: Yup.string()
-            .max(200,'Описание должно иметь до 200 символов'),      
+            .max(320,'Описание должно иметь до 320 символов'),      
         price: Yup.number()
             .positive('Число должно быть положительным')
             .required('Заполните поле')

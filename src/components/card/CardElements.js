@@ -7,6 +7,7 @@ export const CardContainer = styled.div`
     border-bottom: 2px solid #d30909;
     border-radius: 14px;
     margin: 15px; 
+    background: #fff;
 
 `;
 
@@ -80,7 +81,7 @@ export const CardDescription = styled.p`
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 14px;
-    height: 70px;
+    min-height: 100px;
     word-break: break-word;
 `;
 

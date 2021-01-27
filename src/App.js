@@ -20,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     min-height: 100vh;
+    background: #f2f2f2;
   }
 `;
 
@@ -38,10 +39,10 @@ function App() {
        <Route exact path="/" component={Catalog}/>
        <Route exact path="/signin" component={SignIn}/>
        <Route exact path="/product/:id" component={ProductPage} />
-       <PrivateRoute path="/newProduct" redirect="/signin" auth={isLoggin}>
+       <PrivateRoute exact path="/newProduct" redirect="/signin" auth={isLoggin}>
           <NewProduct/>
        </PrivateRoute>
-       <PrivateRoute path="/editProduct/:id" redirect="/" auth={isLoggin}>
+       <PrivateRoute exact path="/editProduct/:id" redirect="/" auth={isLoggin}>
          <EditPage/>
        </PrivateRoute>
        <Route path="*" component={ErrorPage}/> 

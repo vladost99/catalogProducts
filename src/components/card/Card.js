@@ -55,7 +55,6 @@ function Card({
             setisDrop(!isDrop);
         };
 
-        const date = endDatePercent; //  дата окончание скидки
         const priceDiscount = Math.round(price - (price*(percent/100)));
          
     return (
@@ -81,7 +80,7 @@ function Card({
                         {isDiscount && <CardDiscount>{priceDiscount}$</CardDiscount>}
                     </PriceBlock>
                     <CardBtnWrapper><CardBtnBuy><AiOutlineShoppingCart style={{margin: '0 10px 0 0'}}/> Купить</CardBtnBuy></CardBtnWrapper>
-               {isDiscount && date && <CardTimer><Timer delTimer={delTimer}   deadline={date}/></CardTimer>}
+               {isDiscount && endDatePercent && <CardTimer><Timer delTimer={delTimer}   deadline={endDatePercent}/></CardTimer>}
                 </CardFooter>
                 
             </CardContainer>

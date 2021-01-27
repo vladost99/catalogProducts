@@ -12,6 +12,7 @@ function ProductPage() {
     dispatch(getFirebaseItem(id));
     console.log(obj);
 }, []);
+
     return (
        <>
         <Product {...obj}/>

@@ -10,7 +10,7 @@ function ProductPage() {
  const obj = useSelector(state => state.productItems.find(item => item.id == id));
  useEffect(() => {
     dispatch(getFirebaseItem(id));
-    console.log(obj);
+   /*  console.log(obj); */
 }, []);
 
     return (

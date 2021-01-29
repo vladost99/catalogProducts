@@ -25,7 +25,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box p={3}>
-          <Typography>{children}</Typography>
+          <Typography component={'span'}>{children}</Typography>
         </Box>
       )}
     </div>
@@ -45,7 +45,7 @@ function a11yProps(index) {
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.background.paper
   },
   backgr: {
       background: '#291e6a',
@@ -59,12 +59,11 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   tab: {
-    '& .MuiTypography-body1': {
-        display: 'flex',
-        justifyContent: 'space-around',
-        alignItems: 'center',
-    }
-}
+     '& .MuiBox-root ': {
+      fontFamily: '"Courgette", "cursive"'
+     }
+  }
+
 
 }));
 
@@ -73,30 +72,18 @@ function Product(props) {
   const [value, setValue] = useState(0);
   const [movieUrl, setMovieUrl] = useState('');
   const opts = {
-    height: '390',
+    height: '590',
     width: '100%',
-    /* playerVars: {
+    playerVars: {
         autoplay: 1
-    } */
+    } 
   }
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  const handleMovie = async () => {
-
-   /* const options = {
-        q: props.title,
-        type: 'video',
-        part: 'snippet'
-   };
-
-    let result = await searchYoutube(YOUTUBE_KEY,options);
-    console.log(result);
-    setMovieUrl(result.items[1].id.videoId); */
-};
-
+  
  useEffect( async () => {
   const options = {
     q: props.title,
@@ -104,7 +91,7 @@ function Product(props) {
     part: 'snippet'
 };
   let result = await searchYoutube(YOUTUBE_KEY,options);
-  console.log(result);
+ /*  console.log(result); */
   setMovieUrl(result.items[1].id.videoId); 
  }, [])
   
@@ -117,7 +104,7 @@ function Product(props) {
         <Tabs className={classes.flex} value={value} onChange={handleChange}>
           <Tab label="Главная" {...a11yProps(0)} />
           <Tab label="Описание" {...a11yProps(1)} />
-          <Tab onClick={handleMovie} label="Видео" {...a11yProps(2)} />
+          <Tab label="Видео" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       <TabPanel className={classes.tab} value={value} index={0}>
@@ -142,7 +129,7 @@ function Product(props) {
       <TabPanel className={classes.tab} value={value} index={1}>
         <Descr>{props.description}</Descr>
       </TabPanel>
-      <TabPanel  value={value} index={2}>
+      <TabPanel  className={classes.tab} value={value} index={2}>
        <YouTube videoId={movieUrl} opts={opts}/>
       </TabPanel>
     </Wrapper>

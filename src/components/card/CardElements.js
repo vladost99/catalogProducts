@@ -81,8 +81,9 @@ export const CardDescription = styled.p`
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 14px;
-    min-height: 100px;
+    height: 175px;
     word-break: break-word;
+    padding: 10px;
 `;
 
 export const PriceBlock = styled.div`

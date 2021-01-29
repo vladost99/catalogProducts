@@ -2,11 +2,11 @@ import styled from 'styled-components';
 
 
 export const Wrapper =  styled.div`
-    max-width: 1100px;
-    margin: 50px auto 10px auto;
+   /*  max-width: 1100px; */
+   /*  margin: 50px auto 10px auto; */
     width: 100%;
     background: #fff;
-    border-bottom: 1px solid #291e6a;
+    /* border-bottom: 1px solid #291e6a; */
 `;
 
 export const InfoWrap = styled.div`

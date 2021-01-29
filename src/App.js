@@ -21,6 +21,11 @@ const GlobalStyle = createGlobalStyle`
   body {
     min-height: 100vh;
     background: #f2f2f2;
+    font-family: 'Courgette', cursive;
+  }
+
+  button,p,div {
+    font-family: 'Courgette', cursive;
   }
 `;
 

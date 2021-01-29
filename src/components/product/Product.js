@@ -1,71 +1,15 @@
 import React, {useState, useEffect} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs'; 
 import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
 import {InfoTitle,Descr,BtnWrap, Wrapper,BlockPrice,Discount, BlocInfo,Price,PriceDiscount, InfoId, BtnBuy, BlockImage,Img, InfoWrap} from './ProductElement';
 import {AiOutlineShoppingCart} from "react-icons/ai";
 import YouTube from 'react-youtube';
 import {YOUTUBE_KEY} from '../../Environment/Youtube';
 import searchYoutube from 'youtube-api-v3-search';
-
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-
-  return (
-      <>
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box p={3}>
-          <Typography component={'span'}>{children}</Typography>
-        </Box>
-      )}
-    </div>
-    </>
-  );
-}
+import {a11yProps, TabPanel, useStyles} from './TabFunc';
 
 
-
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  };
-}
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.paper
-  },
-  backgr: {
-      background: '#291e6a',
-      width: '100%'
-  },
-  flex: {
-      width: '100%', 
-      '& .MuiTabs-flexContainer': {
-        display: 'flex',
-        justifyContent: 'space-around'
-    }
-  },
-  tab: {
-     '& .MuiBox-root ': {
-      fontFamily: '"Courgette", "cursive"'
-     }
-  }
-
-
-}));
 
 function Product(props) {
   const classes = useStyles();

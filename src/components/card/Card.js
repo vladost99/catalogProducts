@@ -5,19 +5,23 @@ import {
     CardContainer,
     CardDescription,
     CardDiscount,
+    CardEditIcon,
     CardFooter,
     CardHeader,
+    CardIcon,
     CardImage,
     CardMenuDrop,
     CardMenuItem,
     CardName, 
     CardPrice,
     CardTimer,
+    CardTrashIcon,
     CardWrapperImage,
     PriceBlock
 } from './CardElements';
-import {AiOutlineShoppingCart} from "react-icons/ai";
-
+import {AiOutlineShoppingCart, AiOutlineClose} from "react-icons/ai";
+import {BiMenuAltRight,BiEdit} from  "react-icons/bi";
+import {BsTrash} from "react-icons/bs";
 import {BsThreeDotsVertical} from 'react-icons/bs';
 import Timer from '../timer/Timer';
 import {editField, deleteProduct, deleteImage} from '../../Services/firebaseApi';
@@ -62,11 +66,18 @@ function Card({
             <CardContainer>
                 <CardHeader>
                     <CardName to={`/product/${id}`}>{title}</CardName>
-                       {isLoginIn && <BsThreeDotsVertical onClick={handleDrop} size="2em" style={{cursor: 'pointer'}}/>}
-                        {isLoginIn && <CardMenuDrop show={isDrop}>
-                            <CardMenuItem onClick={() => delCard(id)}>Удалить</CardMenuItem>
-                            <CardMenuItem><Link to={`/editProduct/${id}`}>Редактировать</Link></CardMenuItem>
-                        </CardMenuDrop>}
+                       {isLoginIn && <CardIcon>
+                           {!isDrop ? ( <BiMenuAltRight onClick={handleDrop} size="2em" style={{cursor: 'pointer'}}/>)
+                          :
+                          ( <AiOutlineClose onClick={handleDrop} size="2em" style={{cursor: 'pointer'}}/>)}
+                          </CardIcon>
+                           }
+                        <CardMenuDrop show={isDrop}>
+                           {/*  <CardMenuItem onClick={() => delCard(id)}>Удалить</CardMenuItem>
+                            <CardMenuItem>Редактировать</Link></CardMenuItem> */}
+                           {isLoginIn && isDrop && <CardTrashIcon onClick={() => delCard(id)}><BsTrash size="2em"/></CardTrashIcon>}
+                           {isLoginIn && isDrop && <Link to={`/editProduct/${id}`}><CardEditIcon><BiEdit size="2em"/></CardEditIcon></Link>}
+                        </CardMenuDrop>
                 </CardHeader>
                 <CardWrapperImage>
                     <CardImage src={imageUrl} alt="Фото продукта" />

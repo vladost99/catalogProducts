@@ -1,16 +1,63 @@
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import {Link} from 'react-router-dom';
+
 export const CardContainer = styled.div`
-    
     position: relative;
     box-shadow: 0 0px 30px rgba(0,0,0,0.7);
     border-bottom: 2px solid #d30909;
     border-radius: 14px;
     margin: 15px; 
     background: #fff;
-
 `;
 
+
+export const fade = keyframes`
+   0% {
+    opacity: 0;
+   }
+   100% {
+    opacity: 1;
+   }
+`;
+
+export const CardIcon = styled.div`
+    width: 50px;
+    height: 50px;
+    background: #291e6a;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    margin-right: 15px;
+`;
+
+export const CardTrashIcon = styled.div`
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    background: red;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    animation:  0.5s ${fade} ease-in-out;
+`;
+
+export const CardEditIcon = styled.div`
+cursor: pointer;
+width: 50px;
+    height: 50px;
+    background: green;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    margin-top: 10px;
+    animation:  0.5s ${fade} ease-in-out;
+`;
 
 
 export const CardHeader = styled.div`
@@ -29,15 +76,17 @@ export const CardFooter = styled.div`
 export const CardMenuDrop = styled.div`
     position: absolute;
     z-index: 10;
-    display:  ${({show}) => show ? 'block' : 'none'};
-    background: #fff;
-    box-shadow: 0 0px 11px rgba(0,0,0,0.7);
+   /*  display:  ${({show}) => show ? 'block' : 'none'}; */
+    /* background: #fff; */
+   /*  box-shadow: 0 0px 11px rgba(0,0,0,0.7); */
     padding: 10px;
-    top: 43px;
-    right: 10px;
+    top: 75px;
+    right: 14px;
     border-radius: 15px;
     transition: .5s;
-     opacity: ${({show}) => show ? '1' : '0'}; 
+    width: 45px;
+    height: 100px; 
+    margin-right: 15px;
 `;
 
 export const CardMenuItem = styled.div`
@@ -69,10 +118,9 @@ export const CardName = styled(Link)`
     padding: 5px;
     text-decoration: none;
     font-size: 20px;
-    font-weight: 700;
-    word-break: break-word;
+    font-weight: 400;
     height: 88px;
-    width: 300px;
+    width: 240px;
     display: flex;
     align-items: center;
 `;
@@ -81,8 +129,7 @@ export const CardDescription = styled.p`
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 14px;
-    height: 175px;
-    word-break: break-word;
+    height: 200px;
     padding: 10px;
 `;
 

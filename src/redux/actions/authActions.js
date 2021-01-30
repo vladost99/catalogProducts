@@ -5,6 +5,8 @@ export const authLoading = () => {
       type: 'AUTH_LOADING'
     }
   }
+
+  
   export const notAuth = () => {
     return (dispatch) => {
       return dispatch({

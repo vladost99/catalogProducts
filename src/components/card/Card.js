@@ -39,8 +39,9 @@ function Card({
     endDatePercent,
     imageName,
     id,
+    isLoginIn
 }) {
-        const isLoginIn = useSelector(({auth})=> auth.isAdmin);
+        /* const isLoginIn = useSelector(({auth})=> auth.isAdmin); */
         const [isDrop, setisDrop] = useState(false); //нужное
 
       

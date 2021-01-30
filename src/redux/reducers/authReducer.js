@@ -45,7 +45,8 @@ const authReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isSignIn: false,
-                userName: ''
+                userName: '',
+                isAdmin: false
             }
         case 'USER_CREATE': 
             return {

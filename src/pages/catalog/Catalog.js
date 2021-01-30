@@ -10,6 +10,7 @@ function Catalog() {
  const dispatch = useDispatch();
  const items = useSelector(({product}) => product.productItems);
  const isLoading = useSelector(({product}) => product.isLoading); 
+ const isAdmin = useSelector(({auth}) => auth.isAdmin);
  useEffect(() => {
   dispatch(loading());
   const unsubscribe = getCards().onSnapshot(
@@ -29,7 +30,7 @@ function Catalog() {
  }, []);
 
  const list = items.map((item,id) => {
-   return <Card key={id} {...item}/>
+   return <Card isLoginIn={isAdmin} key={id} {...item}/>
  });
     
     return (

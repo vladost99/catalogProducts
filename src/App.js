@@ -43,7 +43,7 @@ function App() {
     <Navbar isLoggin={isLoggin} isAdmin={isAdmin} toggleShow={handleShow} /> 
     <Sidebar isLoggin={isLoggin} isAdmin={isAdmin} isOpen={show}  toggle={handleShow}/>
       <Switch>
-       <Route exact path="/" component={Catalog}/>
+       <Route exact path="/"  component={Catalog}/>
        <Route exact path="/signin" component={SignIn}/>
        <Route exact path="/register" component={RegisterPage}/>
        <Route exact path="/product/:id" component={ProductPage} />

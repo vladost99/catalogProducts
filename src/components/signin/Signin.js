@@ -8,7 +8,7 @@ import * as Yup from 'yup';
 import { TextField } from '@material-ui/core';
 import {authorizedEror, authLoading} from '../../redux/actions/authActions';
 import {useHistory, useLocation, Redirect} from 'react-router-dom';
-import {logIn} from '../../Services/firebaseApi';
+import {logIn} from '../../Services/Firebase/firebaseAuth';
 import Preloader from '../preloader/Preloader';
 import {BiUserCircle} from "react-icons/bi";
 

@@ -1,4 +1,4 @@
-import {getCard} from '../../Services/firebaseApi';
+import {getCard} from '../../Services/Firebase/firebaseFirestore';
 
 export const loading = () => {
     return {

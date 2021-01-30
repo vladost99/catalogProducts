@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from '../Button';
 import { AiOutlineMenu } from "react-icons/ai";
-import {logout} from '../../Services/firebaseApi';
+import {logout} from '../../Services/Firebase/firebaseAuth';
 import {
     Nav,
     NavbarContainer,

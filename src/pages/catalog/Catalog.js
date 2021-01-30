@@ -3,7 +3,7 @@ import { CatalogList,Section } from './CatalogElements';
 import { useSelector, useDispatch } from 'react-redux'
 import Card from '../../components/card/Card';
 import {itemsLoaded, loading} from '../../redux/actions/productAction';
-import {getCards} from '../../Services/firebaseApi';
+import {getCards} from '../../Services/Firebase/firebaseFirestore';
 import Preloader from '../../components/preloader/Preloader';
 
 function Catalog() {

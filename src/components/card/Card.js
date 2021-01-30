@@ -24,7 +24,8 @@ import {BiMenuAltRight,BiEdit} from  "react-icons/bi";
 import {BsTrash} from "react-icons/bs";
 import {BsThreeDotsVertical} from 'react-icons/bs';
 import Timer from '../timer/Timer';
-import {editField, deleteProduct, deleteImage} from '../../Services/firebaseApi';
+import {editField, deleteProduct} from '../../Services/Firebase/firebaseFirestore';
+import {deleteImage} from '../../Services/Firebase/firebaseStorage';
 import {Link} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 

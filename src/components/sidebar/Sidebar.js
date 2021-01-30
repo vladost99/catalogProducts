@@ -3,7 +3,7 @@ import { CloseIcon, SidebarContainer, SidebarLink, SidebarMenu, SidebarWrap } fr
 import { AiOutlineClose } from "react-icons/ai";
 import {Button} from '../Button';
 import {useSelector} from 'react-redux';
-import {logout} from '../../Services/firebaseApi';
+import {logout} from '../../Services/Firebase/firebaseAuth';
 import {useHistory} from 'react-router-dom';
 
 function Sidebar({isOpen, toggle, isLoggin}) {

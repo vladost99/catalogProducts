@@ -12,6 +12,7 @@ export const Button = styled.button`
     text-decoration: none;
     border: 1px solid #EEC00C;
     padding: 10px;
+    margin-right: 10px;
     /* margin: 10px 0; */
     cursor: pointer;
     transition: background .5s;

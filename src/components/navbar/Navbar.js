@@ -1,7 +1,6 @@
 import React from 'react'
 import { Button } from '../Button';
 import { AiOutlineMenu } from "react-icons/ai";
-import {logout} from '../../Services/Firebase/firebaseAuth';
 import {
     Nav,
     NavbarContainer,
@@ -11,14 +10,12 @@ import {
     NavLogo, 
     MenuBar
     } from './NavBarElements';
-
+import AvatarLogin from '../avatar/Avatar';
+import {useSelector} from 'react-redux';
 
 function Navbar({toggleShow, isLoggin}) {
   
-
-
-    const button = isLoggin ? <NavLink to="/"><Button onClick={logout}>Выйти</Button></NavLink> : <NavLink to="/signin"><Button>Войти</Button></NavLink>;
-
+const userName = useSelector(({auth}) => auth.userName);
 
     return (
         <Nav>
@@ -28,10 +25,12 @@ function Navbar({toggleShow, isLoggin}) {
                     <NavItem>
                         <NavLink to="/">Список товаров</NavLink>
                     </NavItem>
-                   {isLoggin && <NavItem>
+                   {/* {isLoggin && <NavItem>
                         <NavLink to="/newProduct"><Button>Добавить товар</Button></NavLink>
-                    </NavItem>}
-                    {button}
+                    </NavItem>} */}
+                    {!isLoggin && <NavLink to="/signin"><Button>Войти</Button></NavLink>}
+                    {!isLoggin && <NavLink to="/register"><Button>Зареєструватися</Button></NavLink>}
+                {isLoggin && <AvatarLogin userName={userName}/>}
                 </NavMenu>
                 <MenuBar onClick={() => toggleShow()}>
                     <AiOutlineMenu style={{cursor: 'pointer'}} color="white" size="2em"/>

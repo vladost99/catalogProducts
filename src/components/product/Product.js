@@ -26,18 +26,17 @@ function Product(props) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
   
- useEffect( async () => {
-  const options = {
-    q: props.title,
-    type: 'video',
-    part: 'snippet'
-};
-  let result = await searchYoutube(YOUTUBE_KEY,options);
- /*  console.log(result); */
-  setMovieUrl(result.items[1].id.videoId); 
- }, [])
+  useEffect( async () => {
+    const options = {
+      q: props.title,
+      type: 'video',
+      part: 'snippet'
+  };
+    let result = await searchYoutube(YOUTUBE_KEY,options);
+  /*  console.log(result); */
+  setMovieUrl(result.items[0].id.videoId); 
+  }, [movieUrl]);
   
 
   const priceDiscount = Math.round(props.price - (props.price*(props.percent/100)));
@@ -73,8 +72,8 @@ function Product(props) {
       <TabPanel className={classes.tab} value={value} index={1}>
         <Descr>{props.description}</Descr>
       </TabPanel>
-      <TabPanel  className={classes.tab} value={value} index={2}>
-       <YouTube videoId={movieUrl} opts={opts}/>
+      <TabPanel   className={classes.tab} value={value} index={2}>
+      <YouTube videoId={movieUrl} opts={opts}/>
       </TabPanel>
     </Wrapper>
   );

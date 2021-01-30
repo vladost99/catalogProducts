@@ -4,9 +4,6 @@ export const authLoading = () => {
     }
   }
   
-  
-  
-  
   export const authroized = (user) => {
     return (dispatch) => {
         return dispatch({

@@ -30,11 +30,14 @@ export const NavMenu = styled.ul`
     display: flex;
     list-style: none;
     align-items: center;
+    margin-right: 90px;
 
     @media screen and  (max-width: 768px) {
         display: none;
     }
 `;
+
+
 
 export const MenuBar = styled.div`
     display: none;

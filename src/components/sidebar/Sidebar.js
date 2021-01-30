@@ -20,6 +20,7 @@ function Sidebar({isOpen, toggle, isLoggin}) {
                     <SidebarLink to="/" onClick={toggle}>Список товаров</SidebarLink>
                     {isLoggin && <SidebarLink to="/newProduct" onClick={toggle}><Button>Добавить товар</Button></SidebarLink>}
                     {button}
+                   {!isLoggin && <SidebarLink to="/register"><Button>Зареєструватися</Button></SidebarLink>}
                 </SidebarMenu>
             </SidebarWrap>
         </SidebarContainer>

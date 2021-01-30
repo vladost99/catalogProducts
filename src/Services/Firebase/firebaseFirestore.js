@@ -23,7 +23,7 @@ export function editField(id,field,field2,field3,value) {
 
 export function addProduct(objData) {
   fireStore.collection(COLLECT).add(objData);
-  console.log('Отправлено');
+ /*  console.log('Отправлено'); */
 }
 
 export function deleteProduct(id) {
@@ -32,5 +32,5 @@ export function deleteProduct(id) {
 
 export function editProduct(id,objData) {
   fireStore.collection(COLLECT).doc(id).set(objData);
-  console.log(id,'Оновлен');
+/*   console.log(id,'Оновлен'); */
 }

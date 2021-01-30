@@ -122,6 +122,7 @@ export const CardName = styled(Link)`
     height: 88px;
     width: 240px;
     display: flex;
+    word-break: break-all;
     align-items: center;
 `;
 
@@ -131,6 +132,7 @@ export const CardDescription = styled.p`
     font-size: 14px;
     height: 200px;
     padding: 10px;
+    word-break: break-all;
 `;
 
 export const PriceBlock = styled.div`

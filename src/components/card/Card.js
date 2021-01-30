@@ -39,7 +39,7 @@ function Card({
     imageName,
     id,
 }) {
-        const isLoginIn = useSelector(state => state.isSignIn);
+        const isLoginIn = useSelector(({auth})=> auth.isSignIn);
         const [isDrop, setisDrop] = useState(false); //нужное
 
       

@@ -8,7 +8,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import Preloader from '../preloader/Preloader';
 import {useDispatch,useSelector} from 'react-redux';
-import {loading, loaded} from '../../redux/actions';
+import {loading, loaded} from '../../redux/actions/productAction';
 import { Button } from '../Button';
 
 function FormProduct(props) {
@@ -16,7 +16,7 @@ function FormProduct(props) {
     const dispatch = useDispatch();
     const [image,SetImage] = useState(null); // для загрузки фото
 
-    const isLoading = useSelector(state => state.isLoading);
+    const isLoading = useSelector(({product}) => product.isLoading);
     const {
         editPage,
         namePage,
@@ -157,7 +157,7 @@ function FormProduct(props) {
             endDatePercent: editPage ? endDatePercent : '',
             isDiscount: editPage ? isDiscount : false,
             imageName:  editPage ? imageName : '',
-            imageUrl: editPage ? imageUrl : null,
+            imageUrl: editPage ? imageUrl : undefined,
             imageWidth: editPage ? imageWidth : 0,
             imageHeight: editPage ? imageHeight : 0,
         },

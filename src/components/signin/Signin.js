@@ -6,18 +6,19 @@ import { useFormik } from 'formik';
 import {useDispatch, useSelector} from 'react-redux';
 import * as Yup from 'yup';
 import { TextField } from '@material-ui/core';
-import {authorizedEror, loaded, loading} from '../../redux/actions';
+import {authorizedEror, authLoading} from '../../redux/actions/authActions';
 import {useHistory, useLocation, Redirect} from 'react-router-dom';
 import {logIn} from '../../Services/firebaseApi';
 import Preloader from '../preloader/Preloader';
 import {BiUserCircle} from "react-icons/bi";
+
 function Signin() {
    const dispatch = useDispatch();
    const history = useHistory();
    const { state } = useLocation();
-   const errorLogin = useSelector(state => state.errorLogin);
-   const auth = useSelector(state => state.isSignIn);
-   const isLoading = useSelector(state => state.isLoading);
+   const errorLogin = useSelector(({auth}) => auth.errorLogin);
+   const auth = useSelector(({auth}) => auth.isSignIn);
+   const isLoading = useSelector(({auth}) => auth.loading);
 
    const validate = Yup.object({
         email: Yup.string()
@@ -35,14 +36,13 @@ function Signin() {
           },
           validationSchema: validate,
           onSubmit: values => {
-            dispatch(loading());
+            dispatch(authLoading());
             logIn(values.email,values.password)
                 .then(() =>{
-                     dispatch(loaded());
+                   
                      history.push('/');
                     })
                 .catch(() => {
-                    dispatch(loaded());
                     dispatch(authorizedEror());
                 });
           },

@@ -2,14 +2,14 @@ import React, { useEffect } from 'react'
 import { CatalogList,Section } from './CatalogElements';
 import { useSelector, useDispatch } from 'react-redux'
 import Card from '../../components/card/Card';
-import {itemsLoaded, loading} from '../../redux/actions';
+import {itemsLoaded, loading} from '../../redux/actions/productAction';
 import {getCards} from '../../Services/firebaseApi';
 import Preloader from '../../components/preloader/Preloader';
 
 function Catalog() {
  const dispatch = useDispatch();
- const items = useSelector(state => state.productItems);
- const isLoading = useSelector(state => state.isLoading); 
+ const items = useSelector(({product}) => product.productItems);
+ const isLoading = useSelector(({product}) => product.isLoading); 
  useEffect(() => {
   dispatch(loading());
   const unsubscribe = getCards().onSnapshot(

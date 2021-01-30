@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react';
 import {auth} from '../Services/firebaseApi';
-import {authroized,notAuth} from '../redux/actions';
+import {authroized,notAuth} from '../redux/actions/authActions';
 import {useDispatch} from 'react-redux';
 function Auth(props) {
     const dispatch = useDispatch();

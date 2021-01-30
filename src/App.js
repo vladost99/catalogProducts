@@ -33,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
 function App() {
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(!show);
-  const isLoggin = useSelector(state => state.isSignIn);
+  const isLoggin = useSelector(({auth}) => auth.isSignIn);
   
   return (
     <>

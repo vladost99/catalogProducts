@@ -12,8 +12,7 @@ function ProductPage() {
  
  useEffect(() => {
     dispatch(getFirebaseItem(id));
-   /*  getVideo(); */
-     console.log( obj); 
+     /* console.log( obj);  */
 }, []);
 
 

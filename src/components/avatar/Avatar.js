@@ -23,11 +23,11 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-function AvatarLogin({userName}) {
+function AvatarLogin({userName,isAdmin}) {
     const classes = useStyles();
     const [dropMenu, setDropMenu] = useState(false);
     const name = userName.substring(0,1).toUpperCase();
-    
+
     const handleDrop = () => {
         setDropMenu(!dropMenu);
     }
@@ -41,12 +41,12 @@ function AvatarLogin({userName}) {
     return (
         <AvatarWrap>
             <Avatar onClick={handleDrop} className={classes.orange}>{name}</Avatar>
-            {dropMenu && ( 
-            <AvatarMenu>
-                 <AvatarLink to="/newProduct"><AvatarBtn onClick={closeDrop}>Добавить товар</AvatarBtn></AvatarLink>
+              
+            <AvatarMenu drop={dropMenu}>
+                {isAdmin && <AvatarLink to="/newProduct"><AvatarBtn onClick={closeDrop}>Добавить товар</AvatarBtn></AvatarLink>}
                  <AvatarLink to="/"><AvatarBtn onClick={logout}>Выйти</AvatarBtn></AvatarLink>
-            </AvatarMenu>)
-            }
+            </AvatarMenu>
+            
         </AvatarWrap>
     )
 }

@@ -30,7 +30,7 @@ export const NavMenu = styled.ul`
     display: flex;
     list-style: none;
     align-items: center;
-    margin-right: 90px;
+    margin-right: ${({isLoggin}) => isLoggin ? '90px' : '0'};
 
     @media screen and  (max-width: 768px) {
         display: none;

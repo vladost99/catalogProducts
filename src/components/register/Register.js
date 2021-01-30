@@ -1,24 +1,22 @@
 import React from 'react'
 import { ErrorText, FormIcon, SignFormControl, SignFormElem, SignFormLabel, SignInForm, SignInInput, SignInName, SignInWrapper } from './SigninElements';
 import {Button} from '../Button';
-import {AiOutlineUser, AiFillLock, AiOutlineLogin} from 'react-icons/ai';
+import {AiOutlineUser, AiFillLock} from 'react-icons/ai';
 import { useFormik } from 'formik';
 import {useDispatch, useSelector} from 'react-redux';
 import * as Yup from 'yup';
 import { TextField } from '@material-ui/core';
-import {authorizedEror, authLoading} from '../../redux/actions/authActions';
-import {useHistory, useLocation, Redirect} from 'react-router-dom';
-import {logIn} from '../../Services/Firebase/firebaseAuth';
+import {useHistory, useLocation} from 'react-router-dom';
 import Preloader from '../preloader/Preloader';
 import {BiUserCircle} from "react-icons/bi";
+import {registerUser } from '../../redux/actions/authActions';
 
-function Signin() {
+function Register() {
    const dispatch = useDispatch();
    const history = useHistory();
-   const { state } = useLocation();
+   /* const { state } = useLocation(); */
    const error = useSelector(({auth}) => auth.error);
-   const authAdmin = useSelector(({auth}) => auth.isAdmin);
-   const isLogin = useSelector(({auth}) => auth.isSignIn);
+  /*  const auth = useSelector(({auth}) => auth.isSignIn); */
    const isLoading = useSelector(({auth}) => auth.loading);
 
    const validate = Yup.object({
@@ -37,31 +35,18 @@ function Signin() {
           },
           validationSchema: validate,
           onSubmit: values => {
-            dispatch(authLoading());
-            logIn(values.email,values.password)
-                .then((user) =>{
-                     history.push('/');
-                    })
-                .catch((error) => {
-                   /*  console.log(error); */
-                    dispatch(authorizedEror(error.message));
-                });
+           // console.log(values);
+           dispatch(registerUser(values.email,values.password,history));
           },
     });
 
-    if (isLogin && authAdmin) {
-        return <Redirect to={state?.from || '/'}/>
-    }
-    if (isLogin) {
-        return <Redirect to="/"/>
-    }
 
 
     return (
        <SignInWrapper>
            <SignInForm onSubmit={formik.handleSubmit}>
                <FormIcon><BiUserCircle size="4em" color="#fff" /></FormIcon>
-               <SignInName>Авторизация</SignInName>
+               <SignInName>Регистрация</SignInName>
                <SignFormControl>
                     
                     <SignFormLabel><AiOutlineUser/><SignFormElem>Логин</SignFormElem></SignFormLabel>
@@ -90,11 +75,11 @@ function Signin() {
                      {formik.touched.password && formik.errors.password && <ErrorText>{formik.errors.password}</ErrorText>}
                </SignFormControl>
               {isLoading && <Preloader form={true} />}
-               <Button type="submit" primary="true">Войти<AiOutlineLogin/></Button>
+               <Button type="submit" primary="true">Зарегистрироваться</Button>
                {error && <ErrorText>{error}</ErrorText>}
            </SignInForm>
        </SignInWrapper>
     )
 }
 
-export default Signin;
+export default Register;

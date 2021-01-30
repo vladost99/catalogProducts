@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Button = styled.button`
     font-size: 17px;
     color: #fff;
-    width: 150px;
+    min-width: 150px;
     outline: none;
     border-radius: 18px;
     display: flex;
@@ -16,7 +16,7 @@ export const Button = styled.button`
     /* margin: 10px 0; */
     cursor: pointer;
     transition: background .5s;
-    background: ${({primary}) => (primary ? '#EEC00C' : 'none')};
+    background: ${({primary}) => (primary ? '#ee9800' : 'none')};
 
     &:hover {
         background: ${({primary}) => (primary ? '#957d1e' : '#EEC00C')};

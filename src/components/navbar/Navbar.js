@@ -13,7 +13,7 @@ import {
 import AvatarLogin from '../avatar/Avatar';
 import {useSelector} from 'react-redux';
 
-function Navbar({toggleShow, isLoggin}) {
+function Navbar({toggleShow, isLoggin,isAdmin}) {
   
 const userName = useSelector(({auth}) => auth.userName);
 
@@ -21,16 +21,16 @@ const userName = useSelector(({auth}) => auth.userName);
         <Nav>
             <NavbarContainer>
                 <NavLogo to="/">I-Catalog</NavLogo>
-                <NavMenu>
+                <NavMenu isLoggin={isLoggin}>
                     <NavItem>
                         <NavLink to="/">Список товаров</NavLink>
                     </NavItem>
                    {/* {isLoggin && <NavItem>
                         <NavLink to="/newProduct"><Button>Добавить товар</Button></NavLink>
                     </NavItem>} */}
-                    {!isLoggin && <NavLink to="/signin"><Button>Войти</Button></NavLink>}
-                    {!isLoggin && <NavLink to="/register"><Button>Зареєструватися</Button></NavLink>}
-                {isLoggin && <AvatarLogin userName={userName}/>}
+                    {!isLoggin && <NavLink to="/signin"><Button>Авторизация</Button></NavLink>}
+                    {!isLoggin && <NavLink to="/register"><Button>Регистрация</Button></NavLink>}
+                {isLoggin && <AvatarLogin isAdmin={isAdmin} userName={userName}/>}
                 </NavMenu>
                 <MenuBar onClick={() => toggleShow()}>
                     <AiOutlineMenu style={{cursor: 'pointer'}} color="white" size="2em"/>

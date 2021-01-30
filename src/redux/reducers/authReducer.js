@@ -2,7 +2,8 @@ const initialState = {
     userName: '',
     loading: false,
     isSignIn: false,
-    errorLogin: false
+    error: '',
+    isAdmin: false
 };  
 
 const authReducer = (state = initialState, action) => {
@@ -16,7 +17,7 @@ const authReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isSignIn: true,
-                userName: action.payload,
+                ...action.payload,
                 loading: false
             }
         case 'AUTHORIZED_FAILURE':
@@ -25,20 +26,32 @@ const authReducer = (state = initialState, action) => {
                 isSignIn: false,
                 userName: '',
                 loading: false,
-                errorLogin: true,
+                error: action.payload,
             }
+        case 'CREATE_USER_FAILURE':
+            return {
+                isSignIn: false,
+                userName: '',
+                loading: false,
+                error: action.payload,
+            }    
         case 'DELETE_ERROR':
             return {
                 ...state,
                 isSignIn: false,
-                errorLogin: false
+                error: ''
             }    
         case 'NOT_AUTHORIZED':
             return {
                 ...state,
                 isSignIn: false,
                 userName: ''
-            }                
+            }
+        case 'USER_CREATE': 
+            return {
+                ...state,
+                loading: false
+            }                    
         
         default: 
             return state;

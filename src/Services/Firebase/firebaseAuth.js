@@ -11,3 +11,7 @@ export function logIn(email,password) {
 export function logout() {
     return auth.signOut();
 }
+
+export function createUser(email,password) {
+ return auth.createUserWithEmailAndPassword(email,password);
+}

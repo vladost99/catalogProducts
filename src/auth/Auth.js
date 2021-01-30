@@ -7,7 +7,8 @@ function Auth(props) {
     useEffect(() => {
        auth.onAuthStateChanged(user => {
             if (user) {
-                dispatch(authroized(user.email));
+               /*  console.log(user); */
+                dispatch(authroized(user.uid));
             }  else {
                 dispatch(notAuth());
             }

@@ -8,15 +8,17 @@ export const AvatarWrap = styled.div`
 export const AvatarMenu = styled.div`
     width: 140px;
     height: 110px;
+    
     background: #fff;
-    display: flex;
+    display: ${({drop}) => drop ? 'flex' : 'none'};
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     position: absolute;
     border-radius: 20px;
     top: 50px;
     right: -50px;
+    transition: .5s;
     z-index: 10;
 
     &::before {

@@ -40,7 +40,7 @@ function Card({
     imageName,
     id,
 }) {
-        const isLoginIn = useSelector(({auth})=> auth.isSignIn);
+        const isLoginIn = useSelector(({auth})=> auth.isAdmin);
         const [isDrop, setisDrop] = useState(false); //нужное
 
       

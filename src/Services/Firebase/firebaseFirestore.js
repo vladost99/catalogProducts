@@ -3,6 +3,7 @@ import "firebase/firestore";
 
 const fireStore = firebase.firestore();
 const COLLECT = 'products';
+const USERS = 'users';
 
 export  function getCards() {
     const collect = fireStore.collection(COLLECT);
@@ -33,4 +34,14 @@ export function deleteProduct(id) {
 export function editProduct(id,objData) {
   fireStore.collection(COLLECT).doc(id).set(objData);
 /*   console.log(id,'Оновлен'); */
+}
+
+//Создание user в firestore
+export function writeUser(objUser,uid) {
+  fireStore.collection(USERS).doc(uid).set(objUser);
+}
+
+//Получить данные User
+export function getUser(uid) {
+ return fireStore.collection(USERS).doc(uid).get();
 }

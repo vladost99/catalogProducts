@@ -6,7 +6,7 @@ import {useSelector} from 'react-redux';
 import {logout} from '../../Services/Firebase/firebaseAuth';
 import {useHistory} from 'react-router-dom';
 
-function Sidebar({isOpen, toggle, isLoggin}) {
+function Sidebar({isOpen, toggle, isLoggin, isAdmin}) {
    
   
     const button = isLoggin ?  <SidebarLink to="/"><Button onClick={logout}>Выйти</Button></SidebarLink> :  <SidebarLink to="/signin" onClick={toggle}><Button>Войти</Button></SidebarLink>
@@ -18,7 +18,7 @@ function Sidebar({isOpen, toggle, isLoggin}) {
             <SidebarWrap>
                 <SidebarMenu>
                     <SidebarLink to="/" onClick={toggle}>Список товаров</SidebarLink>
-                    {isLoggin && <SidebarLink to="/newProduct" onClick={toggle}><Button>Добавить товар</Button></SidebarLink>}
+                    {isLoggin && isAdmin && <SidebarLink to="/newProduct" onClick={toggle}><Button>Добавить товар</Button></SidebarLink>}
                     {button}
                    {!isLoggin && <SidebarLink to="/register"><Button>Зареєструватися</Button></SidebarLink>}
                 </SidebarMenu>

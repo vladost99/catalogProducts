@@ -73,8 +73,6 @@ function Card({
                           </CardIcon>
                            }
                         <CardMenuDrop show={isDrop}>
-                           {/*  <CardMenuItem onClick={() => delCard(id)}>Удалить</CardMenuItem>
-                            <CardMenuItem>Редактировать</Link></CardMenuItem> */}
                            {isLoginIn && isDrop && <CardTrashIcon onClick={() => delCard(id)}><BsTrash size="2em"/></CardTrashIcon>}
                            {isLoginIn && isDrop && <Link to={`/editProduct/${id}`}><CardEditIcon><BiEdit size="2em"/></CardEditIcon></Link>}
                         </CardMenuDrop>

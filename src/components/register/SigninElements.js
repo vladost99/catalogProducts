@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
 export const SignInWrapper = styled.div`
-    height: 100vh;
+   /*  height: 100vh; */
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 100px;
 `;
 
 export const FormIcon = styled.div`

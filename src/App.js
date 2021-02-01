@@ -36,12 +36,13 @@ function App() {
   const handleShow = () => setShow(!show);
   const isLoggin = useSelector(({auth}) => auth.isSignIn);
   const isAdmin = useSelector(({auth}) => auth.isAdmin);
-  
+  const userName = useSelector(({auth}) => auth.userName);
+
   return (
     <>
     <GlobalStyle/>
     <Navbar isLoggin={isLoggin} isAdmin={isAdmin} toggleShow={handleShow} /> 
-    <Sidebar isLoggin={isLoggin} isAdmin={isAdmin} isOpen={show}  toggle={handleShow}/>
+    <Sidebar isLoggin={isLoggin} user={userName}  isAdmin={isAdmin} isOpen={show}  toggle={handleShow}/>
       <Switch>
        <Route exact path="/"  component={Catalog}/>
        <Route exact path="/signin" component={SignIn}/>

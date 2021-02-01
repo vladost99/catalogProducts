@@ -57,5 +57,9 @@ export const SignInInput = styled.input`
 
 export const ErrorText = styled.div`
     color: red;
-    font-size: 25px;
+    font-size: 23px;
+    width: 400px;
+    min-height: 50px;
+    display: flex;
+    justify-content: center;
 `

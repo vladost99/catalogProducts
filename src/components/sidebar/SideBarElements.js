@@ -15,6 +15,12 @@ export const SidebarContainer = styled.div`
     top: ${ ({isOpen}) => (isOpen ?'0' :'-100%')};
 `;
 
+export const AvatarWrap = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+`;
+
 export const SidebarMenu = styled.div`
     display: flex;
     flex-direction: column;

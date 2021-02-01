@@ -6,9 +6,8 @@ import { useFormik } from 'formik';
 import {useDispatch, useSelector} from 'react-redux';
 import * as Yup from 'yup';
 import { TextField } from '@material-ui/core';
-import {authorizedEror, authLoading} from '../../redux/actions/authActions';
+import {loginUser} from '../../redux/actions/authActions';
 import {useHistory, useLocation, Redirect} from 'react-router-dom';
-import {logIn} from '../../Services/Firebase/firebaseAuth';
 import Preloader from '../preloader/Preloader';
 import {BiUserCircle} from "react-icons/bi";
 
@@ -37,15 +36,8 @@ function Signin() {
           },
           validationSchema: validate,
           onSubmit: values => {
-            dispatch(authLoading());
-            logIn(values.email,values.password)
-                .then((user) =>{
-                     history.push('/');
-                    })
-                .catch((error) => {
-                   /*  console.log(error); */
-                    dispatch(authorizedEror(error.message));
-                });
+            dispatch(loginUser(values.email,values.password,history));
+            
           },
     });
 

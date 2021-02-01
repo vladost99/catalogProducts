@@ -1,5 +1,6 @@
 import {createUser} from '../../Services/Firebase/firebaseAuth';
 import {writeUser,getUser} from '../../Services/Firebase/firebaseFirestore';
+import {logIn, translateErrorAuth} from '../../Services/Firebase/firebaseAuth';
 export const authLoading = () => {
     return {
       type: 'AUTH_LOADING'
@@ -52,11 +53,23 @@ export const authLoading = () => {
             history.push('/');
         })
         .catch(error => {
-         dispatch(registerEror(error.message));
-         console.log(error.message);
+         dispatch(registerEror(translateErrorAuth(error.code)));
+         console.log(error);
         });
     }
   }
+
+ export const loginUser = (email,password,history) => {
+   return dispatch => {
+    dispatch(authLoading());
+     logIn(email,password)
+        .then(() => history.push('/'))
+        .catch(error => {
+          console.log(error);
+          dispatch(authorizedEror(translateErrorAuth(error.code)));
+        });
+   }
+ } 
 
   export const authorizedEror = (error) => {
     return (dispatch) => {

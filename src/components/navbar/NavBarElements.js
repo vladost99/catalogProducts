@@ -51,7 +51,7 @@ export const NavItem = styled.li`
     margin-right: 30px;
 `;
 export const NavLink = styled(Link)`
-    font-size: 25px;
+    font-size: 22px;
     text-decoration: none;
     color: #fff;
     cursor: pointer;

@@ -25,9 +25,6 @@ const userName = useSelector(({auth}) => auth.userName);
                     <NavItem>
                         <NavLink to="/">Список товаров</NavLink>
                     </NavItem>
-                   {/* {isLoggin && <NavItem>
-                        <NavLink to="/newProduct"><Button>Добавить товар</Button></NavLink>
-                    </NavItem>} */}
                     {!isLoggin && <NavLink to="/signin"><Button>Авторизация</Button></NavLink>}
                     {!isLoggin && <NavLink to="/register"><Button>Регистрация</Button></NavLink>}
                 {isLoggin && <AvatarLogin isAdmin={isAdmin} userName={userName}/>}

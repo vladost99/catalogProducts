@@ -35,6 +35,7 @@ const cartReducer = ( state = initialState, action) => {
                     ]
                 }
             }
+            /*Нужно фиксить */
         case 'MINUS_ITEM_CART': 
         const elem = {...action.payload};
         const ind = state.cart.findIndex(item => item.id === elem.id);
@@ -55,6 +56,10 @@ const cartReducer = ( state = initialState, action) => {
             ]
           } 
                
+        } else {
+            return {
+                ...state
+            }
         } 
             
                 

@@ -26,7 +26,7 @@ const cartReducer = ( state = initialState, action) => {
                 ]
               } 
                    
-             } else {
+            } else {
                 return {
                     ...state,
                     cart: [
@@ -34,8 +34,40 @@ const cartReducer = ( state = initialState, action) => {
                         obj
                     ]
                 }
-             }
+            }
+        case 'MINUS_ITEM_CART': 
+        const elem = {...action.payload};
+        const ind = state.cart.findIndex(item => item.id === elem.id);
+       
+       if (elem.qtty > 1) {
+         const  itemInState = state.cart.find(item => item.id === elem.id);
+         const productElem = {
+             ...itemInState,
+             qtty: --itemInState.qtty
+            };
+
+          return {
+            ...state, 
+            cart: [
+                ...state.cart.slice(0, ind),
+                productElem,
+                ...state.cart.slice(ind + 1)
+            ]
+          } 
+               
+        } 
             
+                
+        case 'ITEM_REMOVE_FROM_CART':
+            const idx = action.payload;
+            const itemIndex = state.cart.findIndex(item => item.id === idx);
+            return {
+                ...state, 
+                cart: [
+                    ...state.cart.slice(0, itemIndex),
+                    ...state.cart.slice(itemIndex + 1)
+                ]
+            }
         
         
         default:

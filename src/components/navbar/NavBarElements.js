@@ -76,3 +76,5 @@ export const NavLinkAdd = styled(Link)`
     }
 `;
 
+export const CartWrap = styled.div``;
+

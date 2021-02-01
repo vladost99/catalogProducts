@@ -8,13 +8,14 @@ import YouTube from 'react-youtube';
 import {YOUTUBE_KEY} from '../../Environment/Youtube';
 import searchYoutube from 'youtube-api-v3-search';
 import {a11yProps, TabPanel, useStyles} from './TabFunc';
-
-
+import {useDispatch} from 'react-redux';
+import {addProductCart} from '../../redux/actions/cartActions';
 
 function Product(props) {
   const classes = useStyles();
   const [value, setValue] = useState(0);
   const [movieUrl, setMovieUrl] = useState('');
+  const dispatch = useDispatch();
   const opts = {
     height: '590',
     width: '100%',
@@ -26,6 +27,11 @@ function Product(props) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  const addProduct = () => {
+    dispatch(addProductCart(props.product));
+  }
+
   
   useEffect( async () => {
     const options = {
@@ -64,7 +70,7 @@ function Product(props) {
                     {props.isDiscount && <PriceDiscount>{priceDiscount}$</PriceDiscount>}
                 </BlockPrice>
                 <BtnWrap>
-                <BtnBuy><AiOutlineShoppingCart style={{margin: '0 10px 0 0'}}/>Купить</BtnBuy>
+                <BtnBuy onClick={addProduct}><AiOutlineShoppingCart style={{margin: '0 10px 0 0'}}/>Купить</BtnBuy>
                 </BtnWrap>
             </BlocInfo>
          </InfoWrap>

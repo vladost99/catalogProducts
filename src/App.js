@@ -12,6 +12,7 @@ import { createGlobalStyle } from 'styled-components';
 import ProductPage from './pages/product/ProductPage';
 import RegisterPage from './pages/register/RegisterPage';
 import PrivateRoute from './components/PrivateRout/PrivateRoute';
+import CartPage from "./pages/cart/CartPage";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -47,7 +48,8 @@ function App() {
        <Route exact path="/"  component={Catalog}/>
        <Route exact path="/signin" component={SignIn}/>
        <Route exact path="/register" component={RegisterPage}/>
-       <Route exact path="/product/:id" component={ProductPage} />
+       <Route exact path="/product/:id" component={ProductPage}/>
+       <Route exact path="/cart" component={CartPage}/>
        <PrivateRoute exact path="/newProduct" redirect="/signin" auth={isAdmin}>
           <NewProduct/>
        </PrivateRoute>

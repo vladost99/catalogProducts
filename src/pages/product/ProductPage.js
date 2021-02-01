@@ -18,7 +18,7 @@ function ProductPage() {
 
     return (
        <>
-        <Product  {...obj}/>
+        <Product product={obj}  {...obj}/>
        </>
     )
 }

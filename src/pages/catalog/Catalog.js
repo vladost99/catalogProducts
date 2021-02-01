@@ -30,7 +30,7 @@ function Catalog() {
  }, []);
 
  const list = items.map((item,id) => {
-   return <Card isLoginIn={isAdmin} key={id} {...item}/>
+   return <Card product={item} isLoginIn={isAdmin} key={id} {...item}/>
  });
     
     return (

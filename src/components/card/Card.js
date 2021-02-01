@@ -27,8 +27,8 @@ import Timer from '../timer/Timer';
 import {editField, deleteProduct} from '../../Services/Firebase/firebaseFirestore';
 import {deleteImage} from '../../Services/Firebase/firebaseStorage';
 import {Link} from 'react-router-dom';
-import {useSelector} from 'react-redux';
-
+import {useSelector,useDispatch} from 'react-redux';
+import {addProductCart} from '../../redux/actions/cartActions';
 function Card({
     price,
     title,
@@ -39,11 +39,12 @@ function Card({
     endDatePercent,
     imageName,
     id,
-    isLoginIn
+    isLoginIn,
+    product
 }) {
         /* const isLoginIn = useSelector(({auth})=> auth.isAdmin); */
         const [isDrop, setisDrop] = useState(false); //нужное
-
+        const dispatch = useDispatch();
       
         //При окончание таймера отправляет запрос и измняет значение скидки на false
         const delTimer = (value) => {
@@ -54,7 +55,11 @@ function Card({
             deleteImage(imageName);
             deleteProduct(id);
             setisDrop(false);
-        }
+        };
+
+        const addProduct = () => {
+            dispatch(addProductCart(product));
+        };
 
         
         const handleDrop = () => {
@@ -90,7 +95,7 @@ function Card({
                         <CardPrice discount={isDiscount}>{price}$</CardPrice>
                         {isDiscount && <CardDiscount>{priceDiscount}$</CardDiscount>}
                     </PriceBlock>
-                    <CardBtnWrapper><CardBtnBuy><AiOutlineShoppingCart style={{margin: '0 10px 0 0'}}/> Купить</CardBtnBuy></CardBtnWrapper>
+                    <CardBtnWrapper><CardBtnBuy onClick={addProduct}><AiOutlineShoppingCart style={{margin: '0 10px 0 0'}}/>Купить</CardBtnBuy></CardBtnWrapper>
                {isDiscount && endDatePercent && <CardTimer><Timer delTimer={delTimer}   deadline={endDatePercent}/></CardTimer>}
                 </CardFooter>
                 

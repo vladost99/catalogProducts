@@ -36,7 +36,7 @@ function Sidebar({isOpen, toggle, isLoggin, isAdmin,user,toggleCart}) {
             </CloseIcon>
             <SidebarWrap>
                 <SidebarMenu>
-                   {isAdmin && <AvatarWrap><Avatar className={classes.orange}>{name}</Avatar></AvatarWrap>}
+                   {isLoggin && <AvatarWrap><Avatar className={classes.orange}>{name}</Avatar></AvatarWrap>}
                     <SidebarLink to="/" onClick={toggle}>Список товаров</SidebarLink>
                     <SideBarCart onClick={toggleCart}><Cart/></SideBarCart>
                     {isLoggin && isAdmin && <SidebarLink to="/newProduct" onClick={toggle}><Button>Добавить товар</Button></SidebarLink>}

@@ -43,7 +43,6 @@ function Card({
     product
 }) {
         const [isDrop, setisDrop] = useState(false); //нужное
-        const [date,setDate] = useState(endDatePercent);
         const dispatch = useDispatch();
       
         //При окончание таймера отправляет запрос и измняет значение скидки на false
@@ -97,7 +96,7 @@ function Card({
                         {isDiscount && <CardDiscount>{priceDiscount}$</CardDiscount>}
                     </PriceBlock>
                     <CardBtnWrapper><CardBtnBuy onClick={addProduct}><AiOutlineShoppingCart style={{margin: '0 10px 0 0'}}/>Купить</CardBtnBuy></CardBtnWrapper>
-               {isDiscount && endDatePercent && <CardTimer><Timer delTimer={delTimer}   deadline={date}/></CardTimer>}
+               {isDiscount && endDatePercent && <CardTimer><Timer delTimer={delTimer}   deadline={endDatePercent}/></CardTimer>}
                 </CardFooter>
                 
             </CardContainer>

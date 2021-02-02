@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { CloseIcon,AvatarWrap, SidebarContainer, SidebarLink, SidebarMenu, SidebarWrap, SideBarCart } from './SideBarElements';
 import { AiOutlineClose } from "react-icons/ai";
 import {Button} from '../Button';
@@ -19,6 +19,14 @@ function Sidebar({isOpen, toggle, isLoggin, isAdmin,user,toggleCart}) {
     const button = isLoggin ?  <SidebarLink to="/"><Button onClick={logout}>Выйти</Button></SidebarLink> :  <SidebarLink to="/signin" onClick={toggle}><Button>Авторизация</Button></SidebarLink>
     const classes = useStyles();
     const name = user.substring(0,1).toUpperCase();
+
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflowY = 'hidden';
+        } else {
+            document.body.style.overflowY = '';
+        }
+    }, [isOpen]);
 
 
     return (

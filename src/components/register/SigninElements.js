@@ -5,7 +5,7 @@ export const SignInWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 150px;
+    margin-top: 100px;
 `;
 
 export const FormIcon = styled.div`

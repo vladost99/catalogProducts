@@ -7,8 +7,8 @@ export const CartTableWrap = styled.div`
     background: rgba(0,0,0,0.5);
     position: fixed;
     height: 100vh;
-    top: ${({open}) => open ? '0' : '-100%'};
-    z-index: 11;
+    top: ${({open}) => open ? '0' : '-1000%'};
+    z-index: 2;
     transition: .5s;
 `;
 
@@ -20,7 +20,7 @@ export const CartWrapper = styled.div`
     position: relative;
     top: 0;
     transition: .6s;
-    z-index: 13;
+    z-index: 2;
     border-radius: 15px;
     overflow-y: scroll;
 

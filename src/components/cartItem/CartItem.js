@@ -35,7 +35,7 @@ function CartItem({cartItem}) {
                 <CartItemName>{cartItem.title}</CartItemName>
                  <CartPriceBlock>
                     <CartPrice discount={cartItem.isDiscount}>{cartItem.price}$</CartPrice>
-                   {cartItem.isDiscount && <CartPriceDiscount>500$</CartPriceDiscount>}
+                   {cartItem.isDiscount && <CartPriceDiscount>{cartItem.priceWithDiscount}$</CartPriceDiscount>}
                  </CartPriceBlock>
             </CartItemInfo>
             <CartBlockAmount>
@@ -43,7 +43,7 @@ function CartItem({cartItem}) {
                 <CartItemAmount>{cartItem.qtty}</CartItemAmount>
                 <CartPlusItem onClick={plusItem}><AiOutlinePlus size="2em"/></CartPlusItem>
             </CartBlockAmount>
-            <CartItemTotal>1999$</CartItemTotal>
+            <CartItemTotal>{cartItem.totalPriceItem}$</CartItemTotal>
         </CartItemWrapper>
     )
 }

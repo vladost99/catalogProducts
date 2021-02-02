@@ -1,21 +1,26 @@
 
 const initialState = {
-    cart: []
+    cart: [],
+    totalPrice: 0
 };
 
 
 const cartReducer = ( state = initialState, action) => {
     switch (action.type) {
         case 'ADD_PRODUCT_TO_CART':
-            const obj = {...action.payload,qtty: 1};
+            const obj = {...action.payload};
             const itemInd = state.cart.findIndex(item => item.id === obj.id);
+            const priceDiscount =  Math.round(obj.price - (obj.price*(obj.percent/100)));
            
-           if (itemInd >=0) {
+            if (itemInd >=0) {
              const  itemInState = state.cart.find(item => item.id === obj.id);
              const newProduct = {
                  ...itemInState,
-                 qtty: ++itemInState.qtty
+                 qtty: ++itemInState.qtty,
+                 priceWithDiscount: priceDiscount
                 };
+              
+                newProduct.totalPriceItem = priceDiscount * itemInState.qtty;
 
               return {
                 ...state, 
@@ -23,30 +28,35 @@ const cartReducer = ( state = initialState, action) => {
                     ...state.cart.slice(0, itemInd),
                     newProduct,
                     ...state.cart.slice(itemInd + 1)
-                ]
+                ],
+                totalPrice:  state.totalPrice +  newProduct.priceWithDiscount
               } 
                    
             } else {
+
                 return {
                     ...state,
                     cart: [
                         ...state.cart,
-                        obj
-                    ]
+                        {...obj,qtty: 1, totalPriceItem: +priceDiscount,priceWithDiscount: priceDiscount}
+                    ],
+                    totalPrice: state.totalPrice  + priceDiscount
                 }
             }
             /*Нужно фиксить */
         case 'MINUS_ITEM_CART': 
         const elem = {...action.payload};
         const ind = state.cart.findIndex(item => item.id === elem.id);
-       
+
        if (elem.qtty > 1) {
+         const priceDiscount =  Math.round(elem.price - (elem.price*(elem.percent/100)));
          const  itemInState = state.cart.find(item => item.id === elem.id);
          const productElem = {
              ...itemInState,
-             qtty: --itemInState.qtty
+             qtty: --itemInState.qtty,
+             priceWithDiscount: priceDiscount
             };
-
+            productElem.totalPriceItem = priceDiscount *itemInState.qtty;
           return {
             ...state, 
             cart: [
@@ -71,7 +81,9 @@ const cartReducer = ( state = initialState, action) => {
                 cart: [
                     ...state.cart.slice(0, itemIndex),
                     ...state.cart.slice(itemIndex + 1)
-                ]
+                ],
+                totalPrice: state.totalPrice - state.cart[idx].totalPriceItem
+                
             }
         
         

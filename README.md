@@ -1,4 +1,4 @@
-# Для авторизации
+# Для авторизации(admin)
 
 # Login admin@catalog.org
 

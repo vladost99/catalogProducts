@@ -6,6 +6,10 @@ export const CartItemWrapper = styled.div`
     border-bottom: 1px solid #291e6a;
     border-top: 1px solid #291e6a;
     margin-top: 25px;
+
+    @media (max-width: 576px) {
+        flex-direction: column;
+    }
 `;
 
 
@@ -21,16 +25,27 @@ export const CartImg = styled.img`
 export const CartItemInfo = styled.div`
     display: flex;
     flex-direction: column;
-    width: 500px;
+    max-width: 500px;
 `;
 
 export const CartItemName = styled.h4`
     font-size: 25px;
+   /*  max-width: 300px; */
 `;
 
 export const CartPriceBlock = styled.div`
     display: flex;
     margin-top: 30px;
+`;
+
+export const CartBlock = styled.div`
+    display: flex;
+    width: 400px;
+
+    @media (max-width: 576px) {
+        width: 100%;
+    }
+
 `;
 
 export const CartPrice = styled.span`
@@ -48,8 +63,11 @@ export const CartPriceDiscount = styled.span`
 export const CartBlockAmount = styled.div`
     display: flex;
     align-items: center;
-    width: 300px;
     justify-content: center;
+
+    @media (max-width: 576px) {
+        justify-content: flex-start;
+    }
 `;
 
 export const CartItemAmount = styled.span`
@@ -91,12 +109,17 @@ export const CartItemTotal = styled.div`
     justify-content: center;
     width: 150px;
     font-size: 30px;
+    @media (max-width: 576px) {
+        justify-content: flex-end;
+        width: 100%;
+        margin-right: 15px;
+    }
 `;
 
 export const CartItemDel = styled.div`
     position: absolute;
     top: 0;
-    right: 0;
+    right: 10px;
     cursor: pointer;
 `;
 

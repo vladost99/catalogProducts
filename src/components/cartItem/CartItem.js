@@ -12,7 +12,8 @@ import {CartImg,
        CartPlusItem,
        CartBlockAmount,
        CartItemAmount,
-       CartItemTotal
+       CartItemTotal,
+       CartBlock
     } from './CartItemElements';
 import {FaTrash} from "react-icons/fa";
 import {FiMinus} from "react-icons/fi";
@@ -38,12 +39,14 @@ function CartItem({cartItem}) {
                    {cartItem.isDiscount && <CartPriceDiscount>{cartItem.priceWithDiscount}$</CartPriceDiscount>}
                  </CartPriceBlock>
             </CartItemInfo>
+            <CartBlock>
             <CartBlockAmount>
                 <CartMinusItem onClick={minusItem}><FiMinus size="2em"/></CartMinusItem>
                 <CartItemAmount>{cartItem.qtty}</CartItemAmount>
                 <CartPlusItem onClick={plusItem}><AiOutlinePlus size="2em"/></CartPlusItem>
             </CartBlockAmount>
             <CartItemTotal>{cartItem.totalPriceItem}$</CartItemTotal>
+            </CartBlock>
         </CartItemWrapper>
     )
 }

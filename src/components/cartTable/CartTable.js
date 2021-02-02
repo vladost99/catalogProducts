@@ -12,14 +12,14 @@ function CartTable({open,close}) {
         <CartItem key={ind} cartItem={item}/>
     ));
 
-    //Нужно будет придумать что-делать что б скрол убрался
-   /*  useEffect(() => {
+
+    useEffect(() => {
         if (open) {
             document.body.style.overflowY = 'hidden';
         } else {
-            document.body.style.overflowY = 'none';
+            document.body.style.overflowY = '';
         }
-    }, [open]); */
+    }, [open]); 
 
     return (
         <CartTableWrap open={open}>

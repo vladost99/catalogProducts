@@ -23,6 +23,10 @@ export const CartWrapper = styled.div`
     z-index: 13;
     border-radius: 15px;
     overflow-y: scroll;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 `;
 
 
@@ -30,6 +34,7 @@ export const CartWrapper = styled.div`
 export const CartTableTitle = styled.h3`
     font-size: 35px;
     margin-left: 15px;
+
 `;
 
 export const CartTableList = styled.div``;

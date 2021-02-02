@@ -43,7 +43,6 @@ const cartReducer = ( state = initialState, action) => {
                     totalPrice: state.totalPrice  + priceDiscount
                 }
             }
-            /*Нужно фиксить */
         case 'MINUS_ITEM_CART': 
         const elem = {...action.payload};
         const ind = state.cart.findIndex(item => item.id === elem.id);
@@ -63,7 +62,9 @@ const cartReducer = ( state = initialState, action) => {
                 ...state.cart.slice(0, ind),
                 productElem,
                 ...state.cart.slice(ind + 1)
-            ]
+            ],
+            totalPrice: state.totalPrice - priceDiscount
+
           } 
                
         } else {
@@ -82,7 +83,7 @@ const cartReducer = ( state = initialState, action) => {
                     ...state.cart.slice(0, itemIndex),
                     ...state.cart.slice(itemIndex + 1)
                 ],
-                totalPrice: state.totalPrice - state.cart[idx].totalPriceItem
+                totalPrice: state.totalPrice - state.cart[itemIndex].totalPriceItem
                 
             }
         

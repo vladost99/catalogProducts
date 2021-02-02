@@ -5,6 +5,9 @@ export const Nav = styled.nav`
     background: #291e6a;
     width: 100%;
     height: 100px;
+    position: fixed;
+    top: 0;
+    z-index: 2;
 `;
 
 export const NavbarContainer = styled.div`
@@ -32,7 +35,7 @@ export const NavMenu = styled.ul`
     align-items: center;
     margin-right: ${({isLoggin}) => isLoggin ? '90px' : '0'};
 
-    @media screen and  (max-width: 768px) {
+    @media screen and  (max-width: 786px) {
         display: none;
     }
 `;
@@ -42,7 +45,7 @@ export const NavMenu = styled.ul`
 export const MenuBar = styled.div`
     display: none;
 
-    @media (max-width: 768px) {
+    @media (max-width: 786px) {
         display: block;
     }
 `;

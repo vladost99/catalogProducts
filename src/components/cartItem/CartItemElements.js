@@ -30,7 +30,7 @@ export const CartItemInfo = styled.div`
 
 export const CartItemName = styled.h4`
     font-size: 25px;
-   /*  max-width: 300px; */
+    max-width: 400px; 
 `;
 
 export const CartPriceBlock = styled.div`

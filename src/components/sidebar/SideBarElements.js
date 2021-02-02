@@ -57,3 +57,9 @@ export const CloseIcon = styled.div`
     cursor: pointer;
     outline: none;
 `;
+
+export const SideBarCart = styled.div`
+    display: flex;
+    justify-content: center;
+    width: 100%;
+`;

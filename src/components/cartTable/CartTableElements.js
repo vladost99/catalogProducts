@@ -26,7 +26,9 @@ export const CartWrapper = styled.div`
 
     @media (max-width: 768px) {
         width: 100%;
+        border-radius: 0px;
     }
+    
 `;
 
 
@@ -34,7 +36,7 @@ export const CartWrapper = styled.div`
 export const CartTableTitle = styled.h3`
     font-size: 35px;
     margin-left: 15px;
-
+    margin-top: 10px;
 `;
 
 export const CartTableList = styled.div``;
@@ -65,6 +67,8 @@ export const CartTableClose = styled.div`
 export const CartBtnWrap = styled.div`
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
     margin-top: 30px;
 `;
 
@@ -72,7 +76,12 @@ export const CartText = styled.div`
     font-size: 40px;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     color: #291e6a;
+`;
+
+export const CartTotalPrice = styled.div`
+    font-size: 25px;
 `;

@@ -46,7 +46,7 @@ function App() {
     <>
     <GlobalStyle/>
     <Navbar isLoggin={isLoggin} toggleCart={handleCartShow} isAdmin={isAdmin} toggleShow={handleShow} /> 
-    <Sidebar isLoggin={isLoggin} user={userName}  isAdmin={isAdmin} isOpen={show}  toggle={handleShow}/>
+    <Sidebar isLoggin={isLoggin} toggleCart={handleCartShow} user={userName}  isAdmin={isAdmin} isOpen={show}  toggle={handleShow}/>
     <CartTable open={cartOpen} close={handleCartShow} />
       <Switch>
        <Route exact path="/"  component={Catalog}/>

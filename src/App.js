@@ -13,6 +13,7 @@ import ProductPage from './pages/product/ProductPage';
 import RegisterPage from './pages/register/RegisterPage';
 import PrivateRoute from './components/PrivateRout/PrivateRoute';
 import CartTable from "./components/cartTable/CartTable";
+import Alert from "./components/alert/Alert";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -40,14 +41,15 @@ function App() {
   const isLoggin = useSelector(({auth}) => auth.isSignIn);
   const isAdmin = useSelector(({auth}) => auth.isAdmin);
   const userName = useSelector(({auth}) => auth.userName);
-
-
+  const alertText = useSelector(({cart}) => cart.itemText);
+  const loadItemCart = useSelector(({cart}) => cart.addItem);
   return (
     <>
     <GlobalStyle/>
     <Navbar isLoggin={isLoggin} toggleCart={handleCartShow} isAdmin={isAdmin} toggleShow={handleShow} /> 
     <Sidebar isLoggin={isLoggin} toggleCart={handleCartShow} user={userName}  isAdmin={isAdmin} isOpen={show}  toggle={handleShow}/>
     <CartTable open={cartOpen} close={handleCartShow} />
+    {loadItemCart && <Alert text={alertText}/>}
       <Switch>
        <Route exact path="/"  component={Catalog}/>
        <Route exact path="/signin" component={SignIn}/>

@@ -22,7 +22,8 @@ function Catalog() {
                 data.push({...body,id: id});
             });
             dispatch(itemsLoaded(data));
-        }
+        },
+        error => console.log(error)
       );
       return () => {
         unsubscribe();

@@ -14,10 +14,12 @@ export const loading = () => {
   
   
   export const  itemsLoaded = (newItems) => {
-       return {
-           type: 'ITEMS_LOADED',
-           payload: newItems
-       }
+      return dispatch => {
+        dispatch({
+          type: 'ITEMS_LOADED',
+          payload: newItems
+      })
+      }
   }
   
    export const getItem = (objItem) => {
@@ -34,6 +36,7 @@ export const loading = () => {
                 const obj = doc.data();
                 dispatch(getItem({...obj, id: doc.id}));
               });
+              
     }
   }
   

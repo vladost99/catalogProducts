@@ -6,6 +6,7 @@ export const SectionWrapper = styled.div`
     justify-content: center;
     align-items: center;
     padding-top: 40px;
+    margin-top: 100px;
 `;
 
 export const Form = styled.form`

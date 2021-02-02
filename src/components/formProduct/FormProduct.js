@@ -84,7 +84,7 @@ function FormProduct(props) {
                  );
                  //console.log(progress,'%');
              },
-             error => {console.log(error)},
+             error => console.log(error),
              () => {
                     downloadImage(image.name)
                     .then(url => {

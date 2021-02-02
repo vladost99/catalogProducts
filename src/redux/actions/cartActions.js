@@ -5,7 +5,7 @@ export const addProductCart = (product) => {
             type: 'ADD_PRODUCT_TO_CART',
             payload: product
         });
-        setTimeout(() => dispatch({type: "LOADED_PRODUCT_CART"}), 1000*4);
+        setTimeout(() => dispatch({type: "LOADED_PRODUCT_CART"}), 1000*3);
     }
     
 }

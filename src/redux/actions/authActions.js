@@ -22,7 +22,8 @@ export const authLoading = () => {
           .then(doc => {
             const user = {
               uid: doc.id,
-              ...doc.data()
+              ...doc.data(),
+              password: ''
             };
            /*  console.log(user); */
             dispatch({

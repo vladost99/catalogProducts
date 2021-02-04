@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const CartItemWrapper = styled.div`
     display: flex;
     position: relative;
-    border-bottom: 1px solid #291e6a;
-    border-top: 1px solid #291e6a;
+  /*   border-bottom: 1px solid #291e6a;
+    border-top: 1px solid #291e6a; */
     margin-top: 25px;
 
     @media (max-width: 576px) {

@@ -10,7 +10,7 @@ export const NavMenuWrap = styled.div`
     bottom: 0;
     left: 0;
     z-index: 1;
-    border-radius: 15px;
+    border-radius: 5px;
 
     @media (max-width: 786px) {
         display: block;

@@ -6,7 +6,7 @@ export const AlertWrap = styled.div`
     background: rgba(22,164,22,0.87);
     position: fixed;
     z-index: 1;
-    top: 120px;
+    top: 40px;
     right: 20px;
     color: #fff;
     display: flex;

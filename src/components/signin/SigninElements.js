@@ -6,6 +6,7 @@ export const SignInWrapper = styled.div`
     justify-content: center;
     align-items: center;
     margin: 100px 0 100px 0; 
+    height: 100vh; 
 `;
 
 export const FormIcon = styled.div`

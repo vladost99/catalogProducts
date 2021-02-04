@@ -6,7 +6,8 @@ export const Wrapper =  styled.div`
    /*  margin: 50px auto 10px auto; */
     width: 100%;
     background: #fff;
-     margin-bottom: 100px; 
+    /*  margin-bottom: 100px; */
+    height: 100vh; 
     /* border-bottom: 1px solid #291e6a; */
 `;
 

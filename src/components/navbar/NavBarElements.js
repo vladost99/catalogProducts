@@ -5,9 +5,6 @@ export const Nav = styled.nav`
     background: #291e6a;
     width: 100%;
     height: 100px;
-    position: sticky;
-    top: 0;
-    z-index: 2;
 `;
 
 export const NavbarContainer = styled.div`

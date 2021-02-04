@@ -3,7 +3,8 @@ import {Link} from 'react-router-dom';
 
 export const CardContainer = styled.div`
     position: relative;
-    box-shadow: 0 0px 30px rgba(0,0,0,0.7);
+    box-shadow:  12px 12px 16px 0 rgba(0, 0, 0, 0.25),
+    -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
     border-bottom: 2px solid #d30909;
     border-radius: 14px;
     margin: 15px; 

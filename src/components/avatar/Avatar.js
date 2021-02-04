@@ -3,7 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import { AvatarMenu, AvatarLink, AvatarBtn, AvatarWrap} from './AvatarElements';
 import {logout} from '../../Services/Firebase/firebaseAuth';
-import { deepOrange, deepPurple } from '@material-ui/core/colors';
+import { deepOrange } from '@material-ui/core/colors';
+import {useSelector} from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
     orange: {
@@ -13,9 +14,10 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-function AvatarLogin({userName,isAdmin}) {
+function AvatarLogin({isAdmin}) {
     const classes = useStyles();
     const [dropMenu, setDropMenu] = useState(false);
+    const userName = useSelector(({auth}) => auth.userName);
     const name = userName.substring(0,1).toUpperCase();
 
     const handleDrop = () => {

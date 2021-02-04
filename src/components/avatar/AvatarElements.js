@@ -30,6 +30,14 @@ export const AvatarMenu = styled.div`
         background: #fff;
         transform: rotate(45deg);
     }
+
+    @media (max-width: 786px) {
+        top: -118px;
+
+        &::before {
+            top: 103px;
+        }
+    }
 `;
 
 export const  AvatarLink = styled(Link)`

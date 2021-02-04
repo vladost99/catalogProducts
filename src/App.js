@@ -5,7 +5,7 @@ import Catalog from "./pages/catalog/Catalog";
 import SignIn from './pages/signin/SignIn';
 import NewProduct from './pages/newProduct/NewProduct';
 import EditPage from './pages/editPage/EditPage';
-import Sidebar from "./components/sidebar/Sidebar";
+
 import {useSelector} from 'react-redux';
 import ErrorPage from './components/404/ErrorPage';
 import { createGlobalStyle } from 'styled-components';
@@ -14,6 +14,7 @@ import RegisterPage from './pages/register/RegisterPage';
 import PrivateRoute from './components/PrivateRout/PrivateRoute';
 import CartTable from "./components/cartTable/CartTable";
 import Alert from "./components/alert/Alert";
+import NavMenu from "./components/nav-menu/NavMenu";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -47,8 +48,8 @@ function App() {
     <>
     <GlobalStyle/>
     <Navbar isLoggin={isLoggin} toggleCart={handleCartShow} isAdmin={isAdmin} toggleShow={handleShow} /> 
-    <Sidebar isLoggin={isLoggin} toggleCart={handleCartShow} user={userName}  isAdmin={isAdmin} isOpen={show}  toggle={handleShow}/>
     <CartTable open={cartOpen} close={handleCartShow} />
+    <NavMenu isLoggin={isLoggin} toggleCart={handleCartShow} isAdmin={isAdmin}/>
     {loadItemCart && <Alert text={alertText}/>}
       <Switch>
        <Route exact path="/"  component={Catalog}/>

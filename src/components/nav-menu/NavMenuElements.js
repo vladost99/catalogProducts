@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export const NavMenuWrap = styled.div`
     background: #291e6a;
     width: 100%;
-    height: 80px;
+    height: 70px;
     display: none;
     position: fixed;
     bottom: 0;
@@ -61,6 +61,28 @@ export const UserMenu = styled.div`
 
 export const NavMenuItem = styled.li`
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+   
+
+    &::before {
+        content: '';
+        opacity: 0;
+        width: 70px;
+        height: 40px;
+        position: absolute;
+        top: 13px;
+        background: rgb(255 255 255 / 30%);
+        border-radius: 10px;
+        z-index: -1;
+        transition: 1s;
+    }
+
+    &:hover {
+        &::before {
+            opacity: 1;
+        }
+    }
 `;
 
 export const NavMenuLink = styled(Link)`
@@ -79,9 +101,10 @@ export const NavMenuLink = styled(Link)`
     background: #fff;
     cursor: pointer;
     transition: .5s;
-
+     
     &:hover {
         background: #291e6a;
         color: #fff;
     }
+       
 `;

@@ -1,5 +1,5 @@
-import styled,{keyframes} from 'styled-components';
-
+import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 
 
 export const CartTableWrap = styled.div`
@@ -41,9 +41,10 @@ export const CartTableTitle = styled.h3`
 
 export const CartTableList = styled.div``;
 
-export const CartTableBtn = styled.button`
+export const CartTableBtn = styled(Link)`
     display: flex;
     justify-content: center;
+    text-decoration: none;
     align-items: center;
     width: 150px;
     height: 50px;

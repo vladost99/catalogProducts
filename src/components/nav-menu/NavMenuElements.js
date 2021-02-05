@@ -71,7 +71,7 @@ export const NavMenuItem = styled.li`
         width: 70px;
         height: 40px;
         position: absolute;
-        top: 13px;
+        top: 15px;
         background: rgb(255 255 255 / 30%);
         border-radius: 10px;
         z-index: -1;

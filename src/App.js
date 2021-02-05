@@ -5,7 +5,7 @@ import Catalog from "./pages/catalog/Catalog";
 import SignIn from './pages/signin/SignIn';
 import NewProduct from './pages/newProduct/NewProduct';
 import EditPage from './pages/editPage/EditPage';
-
+import CheckoutPage from './pages/checkout/CheckoutPage';
 import {useSelector} from 'react-redux';
 import ErrorPage from './components/404/ErrorPage';
 import { createGlobalStyle } from 'styled-components';
@@ -44,6 +44,7 @@ function App() {
   const userName = useSelector(({auth}) => auth.userName);
   const alertText = useSelector(({cart}) => cart.itemText);
   const loadItemCart = useSelector(({cart}) => cart.addItem);
+  
   return (
     <>
     <GlobalStyle/>
@@ -56,6 +57,7 @@ function App() {
        <Route exact path="/signin" component={SignIn}/>
        <Route exact path="/register" component={RegisterPage}/>
        <Route exact path="/product/:id" component={ProductPage}/>
+       <Route exact path="/checkout" component={CheckoutPage}/>
        <PrivateRoute exact path="/newProduct" redirect="/signin" auth={isAdmin}>
           <NewProduct/>
        </PrivateRoute>

@@ -32,7 +32,7 @@ function CartTable({open,close}) {
                 </CartTableList>
                {items != 0 ? <CartBtnWrap>
                     <CartTotalPrice>Итого: {total}$</CartTotalPrice>
-                   <CartTableBtn>Оформить</CartTableBtn>
+                    <CartTableBtn onClick={close} to="/checkout">Оформить</CartTableBtn>
                    </CartBtnWrap> : ''}
            </CartWrapper>
         </CartTableWrap>

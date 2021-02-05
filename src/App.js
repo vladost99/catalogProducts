@@ -25,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     min-height: 100vh;
     background: #f2f2f2;
-    font-family: 'Courgette', cursive;
+    font-family: 'Big Shoulders Display', cursive;
   }
 
   button,p,div {

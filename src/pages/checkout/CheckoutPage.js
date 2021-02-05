@@ -1,10 +1,11 @@
 import React from 'react'
+import Checkout from '../../components/checkout/Checkout'
 
 function CheckoutPage() {
     return (
-        <div>
-            Тут будит оформление
-        </div>
+        <>
+            <Checkout/>
+        </>
     )
 }
 

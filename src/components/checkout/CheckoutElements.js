@@ -7,10 +7,15 @@ export const CheckoutTitle = styled.h4`
     margin-bottom: 20px;
 `;
 
-export const CheckoutForm = styled.form`
-    height: 100vh;
+export const CheckoutWrap = styled.div`
+    display: flex;
+    justify-content: space-between;
     background: #fff;
     border-radius: 20px;
+`;
+
+export const CheckoutForm = styled.form`
+    height: 100vh;
 `;
 
 export const CheckoutName = styled.h5`
@@ -54,6 +59,18 @@ export const CheckoutFormRadio = styled.div`
     align-items: center;
 `;
 
+export const CheckoutTotalBlock = styled.div`
+    display: flex;
+    font-size: 22.001px;
+    justify-content: space-around;
+    font-weight: 400;
+    align-items: center;
+`;
+
+export const CheckoutTotalTitle = styled.span``;
+
+export const CheckoutTotalPrice = styled.span``;
+
 export const CheckoutLabel =  styled.label`
     font-weight: 400;
     font-size: .9em;
@@ -75,4 +92,36 @@ export const CheckoutSpan = styled.span`
     color: #212121;
     font-weight: 600;
     margin-left: 30px;
+`;
+
+export const CompositionOrder = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+export const CompositionOrderName = styled.h4`
+    margin: 0 0 15px;
+    font-size: 1.4em;
+    color: #424242;
+`;
+
+export const CheckoutBtnWrap = styled.div`
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+`;
+
+export const CheckoutBtn = styled.button`
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    align-items: center;
+    width: 270px;
+    height: 50px;
+    border-radius: 50px;
+    background: #291e6a;
+    color: #fff;
+    font-size: 22px;
+    border: none;
+    cursor: pointer;
+    outline: none;
 `;

@@ -4,6 +4,7 @@ const initialState = {
     totalPrice: 0,
     addItem: false,
     itemText: '',
+    buy: false
 };
 
 
@@ -88,20 +89,29 @@ const cartReducer = ( state = initialState, action) => {
                 totalPrice: state.totalPrice - state.cart[itemIndex].totalPriceItem
                 
             }
-        case 'LOADING_ADD_PRODUCT': {
+        case 'LOADING_ADD_PRODUCT': 
             return {
                 ...state,
                 addItem: true,
                 itemText: action.payload
             }
-        }
-        case 'LOADED_PRODUCT_CART': {
+        case 'LOADED_PRODUCT_CART': 
             return {
                 ...state,
                 addItem: false,
                 itemText: ''
             }
-        }    
+        case 'BUY_LOADING': 
+            return {
+                ...state,
+                buy: action.payload
+            }
+        case 'BUY_COMPLETED': 
+            return {
+                ...state,
+                buy: action.payload
+            }    
+       
         
         
         default:

@@ -7,7 +7,7 @@ import store from './redux/store';
 import Auth from './auth/Auth';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <>
    <Provider store={store}>
    <Auth>
       <Router>
@@ -15,7 +15,7 @@ ReactDOM.render(
       </Router>
     </Auth>
    </Provider>
-  </React.StrictMode>,
+    </>,
   document.getElementById('root')
 );
 

@@ -23,3 +23,11 @@ export const removeProductCart = (id) => {
         payload: id
     }
 }
+
+export const buyCompleted = (history) => {
+    return dispatch => {
+        history.push('/');
+        dispatch({type: 'BUY_LOADING', payload: true});
+        setTimeout(() => dispatch({type: 'BUY_COMPLETED',payload: false}),1000*3);
+    }
+}

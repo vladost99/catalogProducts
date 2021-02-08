@@ -12,11 +12,19 @@ export const CheckoutWrap = styled.div`
     justify-content: space-between;
     background: #fff;
     border-radius: 20px;
+    @media (max-width: 640px) {
+      flex-direction: column;
+      margin-bottom: 100px;
+  }
 `;
 
 export const CheckoutForm = styled.form`
-    height: 100vh;
+   /*  height: 100vh; */
 `;
+
+export const CheckoutBlockForm = styled.div`
+  padding: 15px;
+  `;
 
 export const CheckoutName = styled.h5`
     color: #212121;
@@ -29,8 +37,7 @@ export const CheckoutData = styled.div`
 `;
 
 export const CheckoutInputData = styled.input`
-    max-width: 100%;
-    width: 300px;
+    max-width: 300px;
     height: 40px;
     border-radius: 10px;
     padding: 5px;
@@ -102,6 +109,10 @@ export const CompositionOrderName = styled.h4`
     margin: 0 0 15px;
     font-size: 1.4em;
     color: #424242;
+
+    @media (max-width: 640px) {
+        display: none;
+    }
 `;
 
 export const CheckoutBtnWrap = styled.div`
@@ -118,10 +129,29 @@ export const CheckoutBtn = styled.button`
     width: 270px;
     height: 50px;
     border-radius: 50px;
-    background: #291e6a;
+    background: ${({disabled}) => disabled ? '#a7a0ce' : '#291e6a'};
     color: #fff;
     font-size: 22px;
     border: none;
     cursor: pointer;
     outline: none;
+    transition: .5s;
+
+    &:hover {
+        background: rgba(41,30,106,0.7);
+    }
+`;
+
+export const ErrorTextCheckout = styled.div`
+    color: red;
+    font-size: 18px;
+`;
+
+export const CartsList = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 640px) {
+        display: none;
+    }
 `;

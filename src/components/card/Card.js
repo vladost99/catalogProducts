@@ -1,34 +1,22 @@
 import React, {useState} from 'react'
 import { 
-    CardBtnBuy,
-    CardBtnWrapper,
-    CardContainer,
-    CardDescription,
-    CardDiscount,
-    CardEditIcon,
-    CardFooter,
-    CardHeader,
-    CardIcon,
-    CardImage,
-    CardMenuDrop,
-    CardMenuItem,
-    CardName, 
-    CardPrice,
-    CardTimer,
-    CardTrashIcon,
-    CardWrapperImage,
-    PriceBlock
+    CardBtnBuy,CardBtnWrapper,CardContainer,CardDescription,CardDiscount,CardEditIcon,CardFooter, CardHeader,CardIcon,CardImage,CardMenuDrop,CardMenuItem,CardName, CardPrice,CardTimer,CardTrashIcon,CardWrapperImage,PriceBlock
 } from './CardElements';
 import {AiOutlineShoppingCart, AiOutlineClose} from "react-icons/ai";
 import {BiMenuAltRight,BiEdit} from  "react-icons/bi";
 import {BsTrash} from "react-icons/bs";
-import {BsThreeDotsVertical} from 'react-icons/bs';
 import Timer from '../timer/Timer';
 import {editField, deleteProduct} from '../../Services/Firebase/firebaseFirestore';
 import {deleteImage} from '../../Services/Firebase/firebaseStorage';
 import {Link} from 'react-router-dom';
-import {useSelector,useDispatch} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {addProductCart} from '../../redux/actions/cartActions';
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
 function Card({
     price,
     title,
@@ -88,9 +76,23 @@ function Card({
                     <CardImage src={imageUrl} alt="Фото продукта" />
                 </CardWrapperImage>
                 <CardFooter>
-                    <CardDescription>
+                <Accordion>
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                    >
+                    <Typography>Описание</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                    <Typography>
+                    {description}
+                    </Typography>
+                    </AccordionDetails>
+                </Accordion>
+                    {/* <CardDescription>
                         {description}
-                    </CardDescription>
+                    </CardDescription> */}
                     <PriceBlock>
                         <CardPrice discount={isDiscount}>{price}$</CardPrice>
                         {isDiscount && <CardDiscount>{priceDiscount}$</CardDiscount>}

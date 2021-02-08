@@ -47,8 +47,8 @@ export const CardTrashIcon = styled.div`
 `;
 
 export const CardEditIcon = styled.div`
-cursor: pointer;
-width: 50px;
+    cursor: pointer;
+    width: 50px;
     height: 50px;
     background: green;
     border-radius: 50%;
@@ -76,7 +76,7 @@ export const CardFooter = styled.div`
 
 export const CardMenuDrop = styled.div`
     position: absolute;
-    z-index: 10;
+    z-index: 1;
    /*  display:  ${({show}) => show ? 'block' : 'none'}; */
     /* background: #fff; */
    /*  box-shadow: 0 0px 11px rgba(0,0,0,0.7); */

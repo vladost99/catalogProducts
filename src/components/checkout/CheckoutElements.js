@@ -24,6 +24,7 @@ export const CheckoutForm = styled.form`
 
 export const CheckoutBlockForm = styled.div`
   padding: 15px;
+  width: 50%;
   `;
 
 export const CheckoutName = styled.h5`

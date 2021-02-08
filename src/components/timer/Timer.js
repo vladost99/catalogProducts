@@ -58,7 +58,7 @@ function Timer({deadline, delTimer}) {
 
     return () => clearInterval(timeInterval);
 
-   },[]);
+   },[deadline]);
  
    if (days === 0 &&
         hours === 0 &&

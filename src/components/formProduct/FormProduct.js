@@ -6,11 +6,11 @@ import {  FormInputPercent, FormLabel,FormName,SectionWrapper,Form,FormImage,For
 import { addProduct, editProduct} from '../../Services/Firebase/firebaseFirestore';
 import {uploadImage,downloadImage} from '../../Services/Firebase/firebaseStorage';
 import { useFormik } from 'formik';
-import * as Yup from 'yup';
 import Preloader from '../preloader/Preloader';
 import {useDispatch,useSelector} from 'react-redux';
 import {loading, loaded} from '../../redux/actions/productAction';
 import { Button } from '../Button';
+import {validate} from './ValidateChema';
 
 function FormProduct(props) {
     const history = useHistory();
@@ -34,7 +34,7 @@ function FormProduct(props) {
         imageHeight
     } =  props;
 
-    const button = editPage ? <Button type="submit">Оновити товар</Button> : <Button type="submit">Добавить товар</Button>
+    const button = editPage ? <Button type="submit">Обновить товар</Button> : <Button type="submit">Добавить товар</Button>
    
 
 
@@ -79,10 +79,6 @@ function FormProduct(props) {
         uploadImage(image).on(
             "state_changed",
              snapshot => {
-                 const progress = Math.round(
-                    ( snapshot.bytesTransferred / snapshot.totalBytes) * 100
-                 );
-                 //console.log(progress,'%');
              },
              error => console.log(error),
              () => {
@@ -103,10 +99,6 @@ function FormProduct(props) {
             uploadImage(image).on(
                 "state_changed",
                  snapshot => {
-                     const progress = Math.round(
-                        ( snapshot.bytesTransferred / snapshot.totalBytes) * 100
-                     );
-                     //console.log(progress,'%');
                  },
                  error => {console.log('eror',error)},
                  () => {
@@ -125,28 +117,7 @@ function FormProduct(props) {
         }
     }
 
-    const validate = Yup.object({
-        title: Yup.string()
-            .min(20,'Заголовок должен иметь минимум 20 и 60 символов')
-            .max(60,'Заголовок должен иметь минимум 20 и 60 символов')
-            .required('Пожалуйста заполните поле'),
-        description: Yup.string()
-            .max(320,'Описание должно иметь до 320 символов'),      
-        price: Yup.number()
-            .positive('Число должно быть положительным')
-            .required('Заполните поле')
-            .max(99999999.99,'максимальное число 99999999.99'),
-        endDatePercent: Yup.date()
-            .min(new Date(new Date().getTime() + (24 * 60 * 60 * 1000)),'Дата повинна бути більше текущої'),
-        imageUrl: Yup.string()
-            .required('Загрузите фото'),
-        imageWidth: Yup.number()
-            .max(4000,'Висота і Ширина мін 200 макс 4000px ')
-            .min(200, 'Висота і Ширина мін 200 макс 4000px '),
-        imageHeight: Yup.number()
-            .max(4000,'Висота і Ширина мін 200 макс 4000px ')
-            .min(200, 'Висота і Ширина мін 200 макс 4000px ') 
-    });
+    
     
 
     const formik = useFormik({

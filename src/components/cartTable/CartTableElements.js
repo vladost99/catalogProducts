@@ -1,15 +1,23 @@
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import {Link} from 'react-router-dom';
 
+const anima = keyframes`
+    0% {
+        top: -100%;
+    }
+    100% {
+        top: 0;
+    }
+`;
 
 export const CartTableWrap = styled.div`
     width: 100%;
     background: rgba(0,0,0,0.5);
     position: fixed;
     height: 100vh;
-    top: ${({open}) => open ? '0' : '-1000%'};
+    top: 0;
     z-index: 2;
-    transition: .5s;
+   /*  display: ${({open}) => open ? 'block' : 'none'}; */
 `;
 
 export const CartWrapper = styled.div`
@@ -19,6 +27,7 @@ export const CartWrapper = styled.div`
     height: 100vh;
     position: relative;
     top: 0;
+    animation: ${anima} .5s ease;
     transition: .6s;
     z-index: 2;
     border-radius: 15px;

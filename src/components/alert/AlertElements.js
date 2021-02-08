@@ -1,4 +1,13 @@
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
+
+const anima = keyframes`
+    0% {
+        right: -100%;
+    }
+    100% {
+        right: 20px;
+    }
+`;
 
 export const AlertWrap = styled.div`
     max-width: 500px;
@@ -12,6 +21,7 @@ export const AlertWrap = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
+    animation: ${anima} .5s ease;
 
     @media (max-width: 576px) {
         max-width: 400px;

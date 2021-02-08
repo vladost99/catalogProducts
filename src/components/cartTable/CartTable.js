@@ -13,13 +13,16 @@ function CartTable({open,close}) {
     ));
 
 
-    useEffect(() => {
+     useEffect(() => {
         if (open) {
             document.body.style.overflowY = 'hidden';
         } else {
             document.body.style.overflowY = '';
         }
-    }, [open]); 
+        return () => {
+            document.body.style.overflowY = '';
+        }
+    }, [open]);  
 
     return (
         <CartTableWrap open={open}>

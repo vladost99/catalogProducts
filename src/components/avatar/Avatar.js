@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-function AvatarLogin({isAdmin}) {
+function AvatarLogin({isAdmin,closeNavMenu}) {
     const classes = useStyles();
     const [dropMenu, setDropMenu] = useState(false);
     const userName = useSelector(({auth}) => auth.userName);

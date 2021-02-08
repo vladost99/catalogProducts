@@ -1,10 +1,10 @@
 import React from 'react'
 import {AlertIcon, AlertText, AlertWrap} from './AlertElements';
-import {AiOutlineCheckCircle}  from "react-icons/ai";
+import {AiOutlineCheck}  from "react-icons/ai";
 function Alert({text}) {
     return (
         <AlertWrap>
-            <AlertIcon><AiOutlineCheckCircle size="2em" style={{color: '#fff'}}/></AlertIcon>
+            <AlertIcon><AiOutlineCheck size="2em" style={{color: '#fff'}}/></AlertIcon>
             <AlertText>{text} добавлен в корзину</AlertText>
         </AlertWrap>
     )

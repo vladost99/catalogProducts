@@ -109,7 +109,8 @@ const cartReducer = ( state = initialState, action) => {
         case 'BUY_COMPLETED': 
             return {
                 ...state,
-                buy: action.payload
+                buy: action.payload,
+                cart: []
             }    
        
         

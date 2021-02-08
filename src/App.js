@@ -15,7 +15,7 @@ import PrivateRoute from './components/PrivateRout/PrivateRoute';
 import CartTable from "./components/cartTable/CartTable";
 import Alert from "./components/alert/Alert";
 import NavMenu from "./components/nav-menu/NavMenu";
-
+import ModalGraditude from "./components/modal-gratitude/ModalGraditude"; 
 const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
@@ -44,14 +44,15 @@ function App() {
   const userName = useSelector(({auth}) => auth.userName);
   const alertText = useSelector(({cart}) => cart.itemText);
   const loadItemCart = useSelector(({cart}) => cart.addItem);
-  
+  const buy = useSelector(({cart}) => cart.buy);
   return (
     <>
     <GlobalStyle/>
     <Navbar isLoggin={isLoggin} toggleCart={handleCartShow} isAdmin={isAdmin} toggleShow={handleShow} /> 
-    <CartTable open={cartOpen} close={handleCartShow} />
+    {cartOpen && <CartTable open={cartOpen} close={handleCartShow} />}
     <NavMenu isLoggin={isLoggin} toggleCart={handleCartShow} isAdmin={isAdmin}/>
     {loadItemCart && <Alert text={alertText}/>}
+     {buy && <ModalGraditude/>}
       <Switch>
        <Route exact path="/"  component={Catalog}/>
        <Route exact path="/signin" component={SignIn}/>

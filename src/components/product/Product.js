@@ -41,7 +41,7 @@ function Product(props) {
   };
     let result = await searchYoutube(YOUTUBE_KEY,options);
   /*  console.log(result); */
-  setMovieUrl(result.items[0].id.videoId); 
+  setMovieUrl(result.items[1].id.videoId); 
   }, [movieUrl]);
   
 
@@ -79,7 +79,7 @@ function Product(props) {
         <Descr>{props.description}</Descr>
       </TabPanel>
       <TabPanel   className={classes.tab} value={value} index={2}>
-      <YouTube videoId={movieUrl} opts={opts}/>
+      {movieUrl && <YouTube videoId={movieUrl} opts={opts}/>}
       </TabPanel>
     </Wrapper>
   );

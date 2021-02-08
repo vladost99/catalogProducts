@@ -9,16 +9,18 @@ function ProductPage() {
  const { id } = useParams();
  const dispatch = useDispatch(); 
  const obj = useSelector(({product}) => product.productItems.find(item => item.id == id));
- 
+
+
  useEffect(() => {
     dispatch(getFirebaseItem(id));
      /* console.log( obj);  */
 }, []);
 
 
+
     return (
        <>
-        <Product product={obj}  {...obj}/>
+        <Product  {...obj}/>
        </>
     )
 }

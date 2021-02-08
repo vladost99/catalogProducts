@@ -19,7 +19,7 @@ export const AvatarMenu = styled.div`
     top: 50px;
     right: -50px;
     transition: .5s;
-    z-index: 10;
+    z-index: 1;
 
     &::before {
         content: '';

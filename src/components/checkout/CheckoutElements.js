@@ -12,6 +12,7 @@ export const CheckoutWrap = styled.div`
     justify-content: space-between;
     background: #fff;
     border-radius: 20px;
+    height: 100vh;
     @media (max-width: 640px) {
       flex-direction: column;
       margin-bottom: 100px;
@@ -25,11 +26,15 @@ export const CheckoutForm = styled.form`
 export const CheckoutBlockForm = styled.div`
   padding: 15px;
   width: 50%;
+
+  @media (max-width: 640px) {
+      width: 100%;
+  }
   `;
 
 export const CheckoutName = styled.h5`
     color: #212121;
-    font-size: 16px;
+    font-size: 20px;
     padding: 10px;
 `;
 export const CheckoutData = styled.div`
@@ -46,6 +51,10 @@ export const CheckoutInputData = styled.input`
     outline: none;
     margin-bottom: 10px;
     margin-left: 20px;
+
+    @media (max-width: 640px) {
+        max-width: 460px;
+    }
 `;
 
 export const CheckoutDelivery  = styled.div`
@@ -81,7 +90,7 @@ export const CheckoutTotalPrice = styled.span``;
 
 export const CheckoutLabel =  styled.label`
     font-weight: 400;
-    font-size: .9em;
+    font-size: 1.3em;
     color: #424242;
 `;
 

@@ -29,7 +29,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   button,p,div {
-    font-family: 'Courgette', cursive;
+    font-family: 'Roboto', sans-serif;
   }
 `;
 
@@ -41,10 +41,11 @@ function App() {
   const handleShow = () => setShow(!show);
   const isLoggin = useSelector(({auth}) => auth.isSignIn);
   const isAdmin = useSelector(({auth}) => auth.isAdmin);
-  const userName = useSelector(({auth}) => auth.userName);
   const alertText = useSelector(({cart}) => cart.itemText);
   const loadItemCart = useSelector(({cart}) => cart.addItem);
   const buy = useSelector(({cart}) => cart.buy);
+
+  
   return (
     <>
     <GlobalStyle/>

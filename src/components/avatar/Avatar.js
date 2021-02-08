@@ -14,25 +14,28 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-function AvatarLogin({isAdmin,closeNavMenu}) {
+
+function AvatarLogin({isAdmin, dropMenu, handleDrop}) {
     const classes = useStyles();
-    const [dropMenu, setDropMenu] = useState(false);
+    /* const [dropMenu, setDropMenu] = useState(false); */
     const userName = useSelector(({auth}) => auth.userName);
     const name = userName.substring(0,1).toUpperCase();
 
-    const handleDrop = () => {
-        setDropMenu(!dropMenu);
-    }
 
-    const closeDrop = () => {
-        setDropMenu(false);
-    }
+
+    /* const handleDrop = () => setDropMenu(!dropMenu)
+    const closeDrop = () => setDropMenu(false) */
+
+
+
+
+
     return (
         <AvatarWrap>
             <Avatar onClick={handleDrop} className={classes.orange}>{name}</Avatar>
               
             <AvatarMenu drop={dropMenu}>
-                {isAdmin && <AvatarLink to="/newProduct"><AvatarBtn onClick={closeDrop}>Добавить товар</AvatarBtn></AvatarLink>}
+                {isAdmin && <AvatarLink to="/newProduct"><AvatarBtn onClick={handleDrop}>Добавить товар</AvatarBtn></AvatarLink>}
                  <AvatarLink to="/"><AvatarBtn onClick={logout}>Выйти</AvatarBtn></AvatarLink>
             </AvatarMenu>
             

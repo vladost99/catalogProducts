@@ -10,26 +10,27 @@ import AvatarLogin from '../avatar/Avatar';
 function NavMenu({isLoggin,isAdmin,toggleCart}) {
     const [drop, setDrop] = useState(false);
     const handleDrop = () => setDrop(!drop);
-    const handleCartAndDrop = () => {
-        toggleCart();
-        handleDrop();
-    }
+    const closeDrop = () => setDrop(false);
 
     return (
        <NavMenuWrap>
            <NavMenuList>
             <NavMenuItem>
-                <Link onClick={handleDrop} to="/" ><AiOutlineHome size="2em" color="#fff" /></Link>
+                <Link onClick={closeDrop} to="/" ><AiOutlineHome size="2em" color="#fff" /></Link>
             </NavMenuItem>
-            <NavMenuItem onClick={handleCartAndDrop}><Cart/></NavMenuItem>
+            <NavMenuItem onClick={() => {
+                toggleCart();
+                closeDrop();
+                }
+                }><Cart/></NavMenuItem>
             <NavMenuItem>
                 {
-                isLoggin ? <AvatarLogin closeNavMenu={drop} isAdmin={isAdmin}/>
+                isLoggin ? <AvatarLogin dropMenu={drop} handleDrop={handleDrop} isAdmin={isAdmin}/>
                  : <UserBlock onClick={handleDrop}>
                      <BiUserCircle size="2em" color="#fff"/>
                      <UserMenu drop={drop}>
-                         <NavMenuLink onClick={handleDrop} to="/signin">Авторизация</NavMenuLink>
-                         <NavMenuLink onClick={handleDrop} to="/register">Регистрация</NavMenuLink>
+                         <NavMenuLink onClick={closeDrop} to="/signin">Авторизация</NavMenuLink>
+                         <NavMenuLink onClick={closeDrop} to="/register">Регистрация</NavMenuLink>
                      </UserMenu>
                   </UserBlock>
                  

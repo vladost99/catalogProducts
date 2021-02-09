@@ -51,7 +51,7 @@ function Checkout() {
                     />
                    {formik.touched.firstName && formik.errors.firstName ? <ErrorTextCheckout>{formik.errors.firstName}</ErrorTextCheckout> : null}
                     <InputMask
-                    mask="+38 (999) 999-99-99"
+                    mask="+38 (099) 999-99-99"
                     type="tel"
                     placeholder="Ваш номер телефона*"
                     id="phone"
@@ -83,6 +83,7 @@ function Checkout() {
                     />
                      {formik.touched.city && formik.errors.city ? <ErrorTextCheckout>{formik.errors.city}</ErrorTextCheckout> : null}
                     <CheckoutInputData
+                     type="number"
                      placeholder="Введите номер отделение новой почты*"
                      id="department"
                      name="department"

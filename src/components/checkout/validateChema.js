@@ -4,9 +4,10 @@ export const validate = Yup.object({
         .max(20, 'Максимум 20 символов')
         .required('Заполните поле'),
     phone: Yup.string()
+        .matches(/\+38\(\d{3}\)\d{3}-\d{2}-\d{2}/,'Формат +38 (099) 999-99-99')
         .required('Заполните поле'),
     email:  Yup.string()
-        .email('Invalid email address')
+        .email('Некорректный email')
         .required('Заполните поле'),  
     city: Yup.string()
         .required('Заполните поле')
